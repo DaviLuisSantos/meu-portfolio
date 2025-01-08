@@ -1,0 +1,31 @@
+/* Importando a fonte Inter */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Tema claro e escuro */
+:root {
+  --background: #ededed; /* Tema claro */
+  --foreground: #080032;
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: "Inter", Arial, Helvetica, sans-serif;
+  transition: background 0.3s ease, color 0.3s ease; /* Transição suave ao alternar os temas */
+}
+
+body.dark {
+  --background: #060021; /* Tema escuro */
+  --foreground: #ededed;
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    --background: #020012;
+    --foreground: #ededed;
+  }
+}
