@@ -15,7 +15,7 @@ const Home = () => {
         <title>Davi Luis</title>
         <meta
           name="description"
-          content="Portfólio de um Desenvolvedor Full Stack"
+          content="Portfolio of Davi Luis, Full Stack Developer"
         />
         <link rel="icon" href="/images/1733445778396.jpg" />
         <style>
