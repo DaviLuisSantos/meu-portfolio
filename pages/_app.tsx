@@ -1,9 +1,9 @@
 // pages/_app.tsx
 
-import '../styles/globals.css'; // Importe seus estilos globais
-import type { AppProps } from 'next/app';
-import { ThemeProvider } from 'next-themes'; // Importando o ThemeProvider
-import Head from 'next/head'; // Importando o Head para meta tags
+import "../styles/globals.css"; // Importe seus estilos globais
+import type { AppProps } from "next/app";
+import { ThemeProvider } from "next-themes"; // Importando o ThemeProvider
+import Head from "next/head"; // Importando o Head para meta tags
 
 /**
  * Componente principal do aplicativo Next.js

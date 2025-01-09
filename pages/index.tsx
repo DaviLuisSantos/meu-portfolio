@@ -39,10 +39,9 @@ const Home = () => {
           <Projects />
         </section>
         <section id="about">
-          <About aboutImage="/images/layer 2.png" />
+          <About aboutImage="/images/layer2.png" />
         </section>
       </main>
-
     </div>
   );
 };
