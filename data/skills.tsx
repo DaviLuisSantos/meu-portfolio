@@ -2,7 +2,6 @@ import { FaReact, FaNodeJs, FaDocker } from "react-icons/fa";
 import {
   SiDotnet,
   SiPostgresql,
-  SiVuedotjs,
   SiSqlite,
   SiNextdotjs,
   SiTailwindcss,

@@ -1,4 +1,4 @@
-import { FaReact, FaNodeJs, FaDocker, FaDatabase } from "react-icons/fa";
+import { FaNodeJs } from "react-icons/fa";
 import { SiDotnet, SiNextdotjs, SiSqlite } from "react-icons/si";
 import { SiExpress, SiSequelize, SiEjs } from "react-icons/si";
 import ProjectCard from "./ProjectCard"; // Import the ProjectCard component
@@ -20,7 +20,11 @@ const projects: ProjectProps[] = [
     image: "/images/wallet-manager.png", // Change the image path to the correct one
     githubLink: "https://github.com/DaviLuisSantos/wallet-frontend",
     liveLink: "https://www.walletmanager.com",
-    technologies: [<SiNextdotjs />, <SiDotnet />, <SiSqlite />],
+    technologies: [
+      <SiNextdotjs key="nextjs" />,
+      <SiDotnet key="dotnet" />,
+      <SiSqlite key="sqlite" />,
+    ],
   },
   {
     title: "Visitor Control",
@@ -29,7 +33,11 @@ const projects: ProjectProps[] = [
     image: "/images/controle-visitantes.png",
     githubLink: "https://github.com/DaviLuisSantos/controle-visitantes",
     liveLink: "https://www.controle-visitantes.com",
-    technologies: [<SiEjs />, <SiExpress />, <SiSequelize />],
+    technologies: [
+      <SiEjs key="ejs" />,
+      <SiExpress key="express" />,
+      <SiSequelize key="sequelize" />,
+    ],
   },
   {
     title: "License Plate Processing and Access Control System",
@@ -38,7 +46,11 @@ const projects: ProjectProps[] = [
     image: "/images/license-plate-system.png", // Adjust the image path if necessary
     githubLink: "https://github.com/DaviLuisSantos/Servidor_LPR_Alphadigi",
     liveLink: "https://www.licenseplatesystem.com",
-    technologies: [<FaNodeJs />, <SiSequelize />, <SiSqlite />],
+    technologies: [
+      <FaNodeJs key="nodejs" />,
+      <SiSequelize key="sequelize" />,
+      <SiSqlite key="sqlite" />,
+    ],
   },
 ];
 

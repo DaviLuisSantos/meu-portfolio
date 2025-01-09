@@ -1,4 +1,5 @@
 import { FaGithub, FaLinkedin, FaTwitter, FaInstagram } from "react-icons/fa";
+import Image from "next/image";
 
 interface AboutProps {
   aboutImage: string;
@@ -10,11 +11,13 @@ const About = ({ aboutImage }: AboutProps) => {
       <div className="container mx-auto px-4 flex flex-col md:flex-row items-center">
         {/* Image */}
         <div className="md:w-1/2 flex justify-center">
-          <div className="relative w-1/2 h-1/2 rounded-full overflow-hidden shadow-xl bg-opacity-50 backdrop-blur-lg transition-transform duration-300 hover:scale-105">
-            <img
+          <div className="relative w-64 h-64 rounded-full overflow-hidden shadow-xl bg-opacity-50 backdrop-blur-lg transition-transform duration-300 hover:scale-105">
+            <Image
               src={aboutImage}
               alt="About me"
-              className="w-full h-full object-cover rounded-full"
+              layout="fill"
+              objectFit="cover"
+              className="rounded-full"
             />
           </div>
         </div>
@@ -25,13 +28,30 @@ const About = ({ aboutImage }: AboutProps) => {
             About Me
           </h2>
           <p className="text-lg md:text-xl text-gray-200 leading-relaxed mb-6 font-inter">
-            Hello! I am a full stack developer passionate about creating innovative solutions that truly make a difference. I believe that technology has the power to transform the world, and I am constantly looking for ways to apply my expertise to generate impactful results. What motivates me is seeing my solutions making life easier for users and companies.
+            Hello! I am a full stack developer passionate about creating
+            innovative solutions that truly make a difference. I believe that
+            technology has the power to transform the world, and I am constantly
+            looking for ways to apply my expertise to generate impactful
+            results. What motivates me is seeing my solutions making life easier
+            for users and companies.
           </p>
           <p className="text-lg md:text-xl text-gray-200 leading-relaxed mb-6 font-inter">
-            I have a degree in Systems Analysis and Development and I am currently studying Computer Science. I also have technical courses in Systems Development and Mechatronics, which provided me with a solid foundation to solve complex problems efficiently. With experience in technologies such as React, Vue.js, Node.js, .NET, Express, Next.js, Tailwind, Sequelize, EntityFramework, and Docker, I am prepared to face challenges of any scale, always focusing on tangible and scalable results.
+            I have a degree in Systems Analysis and Development and I am
+            currently studying Computer Science. I also have technical courses
+            in Systems Development and Mechatronics, which provided me with a
+            solid foundation to solve complex problems efficiently. With
+            experience in technologies such as React, Vue.js, Node.js, .NET,
+            Express, Next.js, Tailwind, Sequelize, EntityFramework, and Docker,
+            I am prepared to face challenges of any scale, always focusing on
+            tangible and scalable results.
           </p>
           <p className="text-lg md:text-xl text-gray-200 leading-relaxed mb-6 font-inter">
-            I strongly believe in agile practices, teamwork, and the commitment to deliver solutions that meet the client's exact needs. I am the type of professional who not only solves problems but also seeks to optimize and anticipate solutions for the future. Let's talk about how I can add value to your team and help your company achieve extraordinary results.
+            I strongly believe in agile practices, teamwork, and the commitment
+            to deliver solutions that meet the client&apos;s exact needs. I am
+            the type of professional who not only solves problems but also seeks
+            to optimize and anticipate solutions for the future. Let&apos;s talk
+            about how I can add value to your team and help your company achieve
+            extraordinary results.
           </p>
 
           {/* Social Media Icons */}

@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import { ModalContext } from "../contexts/ModalContext";
+import Image from "next/image";
 
 interface SkillCardProps {
   icon: React.ReactNode;
@@ -37,11 +38,15 @@ const SkillCard = ({
           </button>
         </div>
         <div>
-          <img
-            src={imageUrl}
-            alt={label}
-            className="w-full h-64 object-cover mb-4 rounded-lg"
-          />
+          <div className="relative w-full h-64 mb-4">
+            <Image
+              src={imageUrl}
+              alt={label}
+              layout="fill"
+              objectFit="cover"
+              className="rounded-lg"
+            />
+          </div>
           <p className="text-gray-300 text-lg mb-4">{description}</p>
           <p className="text-gray-400 text-sm mb-2">
             <strong>Tempo de uso:</strong> {experience}

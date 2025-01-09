@@ -1,4 +1,5 @@
 import { FaGithub, FaLink } from "react-icons/fa";
+import Image from "next/image";
 
 interface ProjectCardProps {
   title: string;
@@ -20,15 +21,15 @@ const ProjectCard = ({
   return (
     <div className="bg-gray-800 text-white rounded-lg shadow-lg overflow-hidden group hover:scale-105 transform transition-all duration-300 flex flex-col justify-between">
       {/* Imagem do projeto */}
-      <div className="relative">
-        <img
+      <div className="relative w-full h-64">
+        <Image
           src={image}
           alt={title}
-          width={500}
-          height={300}
-          className="w-full h-64 object-cover group-hover:opacity-80 transition-opacity duration-300"
+          layout="fill"
+          objectFit="cover"
+          className="group-hover:opacity-80 transition-opacity duration-300 rounded-t-lg"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black opacity-50 group-hover:opacity-0 transition-opacity duration-300"></div>
+        <div className="absolute inset-0 bg-gradient-to-t from-black opacity-50 group-hover:opacity-0 transition-opacity duration-300 rounded-t-lg"></div>
       </div>
 
       {/* Conteúdo do card */}
