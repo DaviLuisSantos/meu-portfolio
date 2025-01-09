@@ -39,7 +39,7 @@ const Home = () => {
           <Projects />
         </section>
         <section id="about">
-          <About aboutImage="/images/layer2.png" />
+          <About aboutImage="/images/1733445778396.jpg" />
         </section>
       </main>
     </div>

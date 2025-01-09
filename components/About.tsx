@@ -1,4 +1,4 @@
-import { FaGithub, FaLinkedin, FaTwitter, FaInstagram } from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaInstagram } from "react-icons/fa";
 import Image from "next/image";
 
 interface AboutProps {
@@ -11,13 +11,13 @@ const About = ({ aboutImage }: AboutProps) => {
       <div className="container mx-auto px-4 flex flex-col md:flex-row items-center">
         {/* Image */}
         <div className="md:w-1/2 flex justify-center">
-          <div className="relative w-64 h-64 rounded-full overflow-hidden shadow-xl bg-opacity-50 backdrop-blur-lg transition-transform duration-300 hover:scale-105">
+          <div className="relative w-80 h-80 rounded-lg overflow-hidden shadow-xl bg-opacity-50 backdrop-blur-lg transition-transform duration-300 hover:scale-105">
             <Image
               src={aboutImage}
               alt="About me"
               layout="fill"
               objectFit="cover"
-              className="rounded-full"
+              className="rounded-lg"
             />
           </div>
         </div>
@@ -74,15 +74,7 @@ const About = ({ aboutImage }: AboutProps) => {
             >
               <FaLinkedin className="text-3xl" />
             </a>
-            <a
-              href="https://twitter.com/seuusuario"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-white hover:text-gray-400 transition-colors"
-              aria-label="Twitter"
-            >
-              <FaTwitter className="text-3xl" />
-            </a>
+
             <a
               href="https://www.instagram.com/davi.luissc/"
               target="_blank"
