@@ -1,6 +1,5 @@
-// pages/index.tsx
-
 import Head from "next/head";
+import Image from "next/image";
 import Hero from "../components/Hero";
 import About from "../components/About";
 import Projects from "../components/Projects";
@@ -13,12 +12,12 @@ const Home = () => {
   return (
     <div>
       <Head>
-        <title>Meu Portfólio</title>
+        <title>Davi Luis</title>
         <meta
           name="description"
           content="Portfólio de um Desenvolvedor Full Stack"
         />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/images/1733445778396.jpg" />
         <style>
           {`
             /* Ajuste do espaço de rolagem para não sobrepor a navbar fixa */
@@ -35,6 +34,18 @@ const Home = () => {
         <section id="hero">
           <Hero profilePic="/images/1733445778396.jpg" />
         </section>
+
+        {/* Adicionando uma foto abaixo da seção Hero */}
+        <div className="flex justify-center my-8">
+          <Image
+            src="/images/your-image.jpg" // Substitua pelo caminho da sua imagem
+            alt="Descrição da imagem"
+            width={500} // Ajuste a largura conforme necessário
+            height={300} // Ajuste a altura conforme necessário
+            className="rounded-lg shadow-lg"
+          />
+        </div>
+
         <section id="projects">
           <Projects />
         </section>
