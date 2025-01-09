@@ -1,5 +1,3 @@
-// components/Contact.tsx
-
 import { useState } from "react";
 
 const Contact = () => {
@@ -23,8 +21,8 @@ const Contact = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
-    // Aqui você pode implementar a lógica para enviar os dados para uma API ou serviço de e-mail.
-    // Por enquanto, vamos apenas exibir um sucesso fictício.
+    // Here you can implement the logic to send the data to an API or email service.
+    // For now, we'll just display a fictitious success message.
 
     if (formData.name && formData.email && formData.message) {
       setIsSubmitted(true);
@@ -36,18 +34,17 @@ const Contact = () => {
   };
 
   return (
-    <section className="py-16 bg-white" id="contato">
+    <section className="py-16 text-white bg-background" id="contact">
       <div className="container mx-auto text-center">
-        <h2 className="text-3xl font-extrabold text-gray-800 mb-8">Contato</h2>
+        <h2 className="text-3xl font-extrabold text-white mb-8">Contact</h2>
         {isSubmitted && !isError && (
-          <div className="bg-green-200 text-green-800 p-4 mb-4 rounded">
-            Sua mensagem foi enviada com sucesso! Eu entrarei em contato em
-            breve.
+          <div className="bg-green-700 text-green-200 p-4 mb-4 rounded">
+            Your message has been sent successfully! I will get in touch soon.
           </div>
         )}
         {isError && (
-          <div className="bg-red-200 text-red-800 p-4 mb-4 rounded">
-            Preencha todos os campos obrigatórios!
+          <div className="bg-red-700 text-red-200 p-4 mb-4 rounded">
+            Please fill in all required fields!
           </div>
         )}
         <form onSubmit={handleSubmit} className="max-w-2xl mx-auto">
@@ -58,8 +55,8 @@ const Contact = () => {
                 name="name"
                 value={formData.name}
                 onChange={handleChange}
-                placeholder="Seu nome"
-                className="w-full p-4 border border-gray-300 rounded-lg"
+                placeholder="Your name"
+                className="w-full p-4 border border-gray-700 bg-gray-800 text-white rounded-lg"
                 required
               />
             </div>
@@ -69,8 +66,8 @@ const Contact = () => {
                 name="email"
                 value={formData.email}
                 onChange={handleChange}
-                placeholder="Seu e-mail"
-                className="w-full p-4 border border-gray-300 rounded-lg"
+                placeholder="Your email"
+                className="w-full p-4 border border-gray-700 bg-gray-800 text-white rounded-lg"
                 required
               />
             </div>
@@ -80,8 +77,8 @@ const Contact = () => {
                 name="subject"
                 value={formData.subject}
                 onChange={handleChange}
-                placeholder="Assunto"
-                className="w-full p-4 border border-gray-300 rounded-lg"
+                placeholder="Subject"
+                className="w-full p-4 border border-gray-700 bg-gray-800 text-white rounded-lg"
               />
             </div>
             <div>
@@ -89,8 +86,8 @@ const Contact = () => {
                 name="message"
                 value={formData.message}
                 onChange={handleChange}
-                placeholder="Sua mensagem"
-                className="w-full p-4 border border-gray-300 rounded-lg"
+                placeholder="Your message"
+                className="w-full p-4 border border-gray-700 bg-gray-800 text-white rounded-lg"
                 rows={4}
                 required
               ></textarea>
@@ -100,7 +97,7 @@ const Contact = () => {
                 type="submit"
                 className="w-full py-4 px-6 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition"
               >
-                Enviar Mensagem
+                Send Message
               </button>
             </div>
           </div>

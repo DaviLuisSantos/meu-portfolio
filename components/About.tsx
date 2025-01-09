@@ -1,6 +1,3 @@
-// components/About.tsx
-
-import Image from "next/image";
 import { FaGithub, FaLinkedin, FaTwitter, FaInstagram } from "react-icons/fa";
 
 interface AboutProps {
@@ -9,57 +6,53 @@ interface AboutProps {
 
 const About = ({ aboutImage }: AboutProps) => {
   return (
-    <section className="py-20" style={{ backgroundColor: "#020012" }}>
+    <section className="py-20 bg-background">
       <div className="container mx-auto px-4 flex flex-col md:flex-row items-center">
-        {/* Imagem */}
+        {/* Image */}
         <div className="md:w-1/2 flex justify-center">
-          <Image
-            src={aboutImage}
-            alt="Sobre mim"
-            width={400}
-            height={400}
-            className="rounded-lg shadow-xl transform hover:scale-105 transition-transform duration-300"
-          />
+          <div className="relative w-1/2 h-1/2 rounded-full overflow-hidden shadow-xl bg-opacity-50 backdrop-blur-lg transition-transform duration-300 hover:scale-105">
+            <img
+              src={aboutImage}
+              alt="About me"
+              className="w-full h-full object-cover rounded-full"
+            />
+          </div>
         </div>
 
-        {/* Texto */}
-        <div className="md:w-1/2 mt-8 md:mt-0 md:pl-10">
+        {/* Text */}
+        <div className="md:w-1/2 mt-8 md:mt-0 md:pl-10 text-center md:text-left">
           <h2 className="text-4xl font-bold text-white mb-6 font-inter">
-            Sobre Mim
+            About Me
           </h2>
           <p className="text-lg md:text-xl text-gray-200 leading-relaxed mb-6 font-inter">
-            Sou um desenvolvedor full stack apaixonado por tecnologia e
-            inovação. Tenho experiência em criar aplicações web modernas e
-            escaláveis, sempre buscando entregar valor e experiências incríveis
-            para os usuários.
+            Hello! I am a full stack developer passionate about creating innovative solutions that truly make a difference. I believe that technology has the power to transform the world, and I am constantly looking for ways to apply my expertise to generate impactful results. What motivates me is seeing my solutions making life easier for users and companies.
           </p>
           <p className="text-lg md:text-xl text-gray-200 leading-relaxed mb-6 font-inter">
-            Minhas principais habilidades incluem trabalhar com frameworks de
-            front-end como React e Vue.js, além de tecnologias back-end como
-            Node.js e .NET. Sou adepto de práticas ágeis e de escrever código
-            limpo e eficiente.
+            I have a degree in Systems Analysis and Development and I am currently studying Computer Science. I also have technical courses in Systems Development and Mechatronics, which provided me with a solid foundation to solve complex problems efficiently. With experience in technologies such as React, Vue.js, Node.js, .NET, Express, Next.js, Tailwind, Sequelize, EntityFramework, and Docker, I am prepared to face challenges of any scale, always focusing on tangible and scalable results.
+          </p>
+          <p className="text-lg md:text-xl text-gray-200 leading-relaxed mb-6 font-inter">
+            I strongly believe in agile practices, teamwork, and the commitment to deliver solutions that meet the client's exact needs. I am the type of professional who not only solves problems but also seeks to optimize and anticipate solutions for the future. Let's talk about how I can add value to your team and help your company achieve extraordinary results.
           </p>
 
-
-          {/* Ícones das Redes Sociais */}
-          <div className="flex justify-start mt-6 space-x-6">
+          {/* Social Media Icons */}
+          <div className="flex justify-center md:justify-start mt-6 space-x-6">
             <a
-              href="https://github.com/seuusuario"
+              href="https://github.com/DaviLuisSantos"
               target="_blank"
               rel="noopener noreferrer"
               className="text-white hover:text-gray-400 transition-colors"
               aria-label="GitHub"
             >
-              <FaGithub className="text-2xl" />
+              <FaGithub className="text-3xl" />
             </a>
             <a
-              href="https://www.linkedin.com/in/seuusuario/"
+              href="https://www.linkedin.com/in/davi-luis/"
               target="_blank"
               rel="noopener noreferrer"
               className="text-white hover:text-gray-400 transition-colors"
               aria-label="LinkedIn"
             >
-              <FaLinkedin className="text-2xl" />
+              <FaLinkedin className="text-3xl" />
             </a>
             <a
               href="https://twitter.com/seuusuario"
@@ -68,16 +61,16 @@ const About = ({ aboutImage }: AboutProps) => {
               className="text-white hover:text-gray-400 transition-colors"
               aria-label="Twitter"
             >
-              <FaTwitter className="text-2xl" />
+              <FaTwitter className="text-3xl" />
             </a>
             <a
-              href="https://www.instagram.com/seuusuario/"
+              href="https://www.instagram.com/davi.luissc/"
               target="_blank"
               rel="noopener noreferrer"
               className="text-white hover:text-gray-400 transition-colors"
               aria-label="Instagram"
             >
-              <FaInstagram className="text-2xl" />
+              <FaInstagram className="text-3xl" />
             </a>
           </div>
         </div>

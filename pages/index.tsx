@@ -32,9 +32,6 @@ const Home = () => {
         </style>
       </Head>
 
-      {/* Navbar fixa */}
-      <Navbar />
-
       {/* Conteúdo principal */}
       <main>
         {/* Cada seção possui uma âncora para a navegação */}
@@ -45,15 +42,10 @@ const Home = () => {
           <Projects />
         </section>
         <section id="about">
-          <About aboutImage="/images/1733445778396.jpg" />
-        </section>
-        <section id="contact">
-          <Contact />
+          <About aboutImage="/images/layer 2.png" />
         </section>
       </main>
 
-      {/* Rodapé */}
-      <Footer />
     </div>
   );
 };
