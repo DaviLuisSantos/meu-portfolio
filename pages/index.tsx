@@ -34,18 +34,6 @@ const Home = () => {
         <section id="hero">
           <Hero profilePic="/images/1733445778396.jpg" />
         </section>
-
-        {/* Adicionando uma foto abaixo da seção Hero */}
-        <div className="flex justify-center my-8">
-          <Image
-            src="/images/your-image.jpg" // Substitua pelo caminho da sua imagem
-            alt="Descrição da imagem"
-            width={500} // Ajuste a largura conforme necessário
-            height={300} // Ajuste a altura conforme necessário
-            className="rounded-lg shadow-lg"
-          />
-        </div>
-
         <section id="projects">
           <Projects />
         </section>
