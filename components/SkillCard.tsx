@@ -49,10 +49,10 @@ const SkillCard = ({
           </div>
           <p className="text-gray-300 text-lg mb-4">{description}</p>
           <p className="text-gray-400 text-sm mb-2">
-            <strong>Tempo de uso:</strong> {experience}
+            <strong>Experience:</strong> {experience}
           </p>
           <div>
-            <strong className="text-gray-400">Projetos:</strong>
+            <strong className="text-gray-400">Projects:</strong>
             <ul className="list-disc pl-5 text-gray-300 mt-2">
               {projects.map((project, index) => (
                 <li key={index}>{project}</li>
