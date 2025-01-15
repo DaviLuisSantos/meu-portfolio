@@ -70,9 +70,6 @@ const Hero = ({ profilePic }: HeroProps) => {
     ],
   };
 
-  const downloadName =
-    locale === "en" ? "Davi_Luis_Resume_EN.pdf" : "Davi_Luis_Curriculo_PT.pdf";
-
   return (
     <ModalProvider>
       <section
