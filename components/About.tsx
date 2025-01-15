@@ -1,11 +1,14 @@
 import { FaGithub, FaLinkedin, FaInstagram } from "react-icons/fa";
 import Image from "next/image";
+import { useTranslation } from "react-i18next";
 
 interface AboutProps {
   aboutImage: string;
 }
 
 const About = ({ aboutImage }: AboutProps) => {
+  const { t } = useTranslation();
+
   return (
     <section className="py-20 bg-background">
       <div className="container mx-auto px-4 flex flex-col md:flex-row items-center">
@@ -25,33 +28,16 @@ const About = ({ aboutImage }: AboutProps) => {
         {/* Text */}
         <div className="md:w-1/2 mt-8 md:mt-0 md:pl-10 text-center md:text-left">
           <h2 className="text-4xl font-bold text-white mb-6 font-inter">
-            About Me
+            {t("about_me_title")}
           </h2>
           <p className="text-lg md:text-xl text-gray-200 leading-relaxed mb-6 font-inter">
-            Hello! I am a full stack developer passionate about creating
-            innovative solutions that truly make a difference. I believe that
-            technology has the power to transform the world, and I am constantly
-            looking for ways to apply my expertise to generate impactful
-            results. What motivates me is seeing my solutions making life easier
-            for users and companies.
+            {t("about_me_paragraph1")}
           </p>
           <p className="text-lg md:text-xl text-gray-200 leading-relaxed mb-6 font-inter">
-            I have a degree in Systems Analysis and Development and I am
-            currently studying Computer Science. I also have technical courses
-            in Systems Development and Mechatronics, which provided me with a
-            solid foundation to solve complex problems efficiently. With
-            experience in technologies such as React, Vue.js, Node.js, .NET,
-            Express, Next.js, Tailwind, Sequelize, EntityFramework, and Docker,
-            I am prepared to face challenges of any scale, always focusing on
-            tangible and scalable results.
+            {t("about_me_paragraph2")}
           </p>
           <p className="text-lg md:text-xl text-gray-200 leading-relaxed mb-6 font-inter">
-            I strongly believe in agile practices, teamwork, and the commitment
-            to deliver solutions that meet the client&apos;s exact needs. I am
-            the type of professional who not only solves problems but also seeks
-            to optimize and anticipate solutions for the future. Let&apos;s talk
-            about how I can add value to your team and help your company achieve
-            extraordinary results.
+            {t("about_me_paragraph3")}
           </p>
 
           {/* Social Media Icons */}

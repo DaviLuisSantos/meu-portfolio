@@ -1,16 +1,23 @@
 import Image from "next/image";
 import Slider from "react-slick";
 import SkillCard from "./SkillCard"; // Import SkillCard
-import { skills } from "../data/skills";
+import { skills } from "../data/skills"; // Certifique-se de que o caminho está correto
 import { ModalProvider } from "../contexts/ModalContext";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { useTranslation } from "react-i18next";
+import LanguageSwitcher from "../components/LanguageSwitcher"; // Import LanguageSwitcher
+import { useRouter } from "next/router"; // Import useRouter
 
 interface HeroProps {
   profilePic: string;
 }
 
 const Hero = ({ profilePic }: HeroProps) => {
+  const { t } = useTranslation();
+  const router = useRouter();
+  const { locale } = router; // Get the current locale from the router
+
   const settings = {
     dots: true,
     infinite: true,
@@ -42,6 +49,8 @@ const Hero = ({ profilePic }: HeroProps) => {
     ],
   };
 
+  const resumeLink = locale === "en" ? "/DAVI-LUIS-EN.pdf" : "/DAVI-LUIS-PT.pdf";
+
   return (
     <ModalProvider>
       <section
@@ -54,6 +63,9 @@ const Hero = ({ profilePic }: HeroProps) => {
       `,
         }}
       >
+        <div className="absolute top-4 left-4 z-20">
+          <LanguageSwitcher /> {/* Add LanguageSwitcher */}
+        </div>
         {/* Overlapping gradient for better contrast */}
         <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black opacity-60"></div>
 
@@ -67,19 +79,19 @@ const Hero = ({ profilePic }: HeroProps) => {
               className="rounded-full shadow-lg mx-auto"
             />
             <h1 className="text-4xl md:text-5xl font-extrabold text-white mt-6">
-              Davi Luis
+              {t("hero_title")}
             </h1>
             <h2 className="text-3xl md:text-4xl font-extrabold text-white mt-2">
-              Full Stack Developer
+              {t("hero_subtitle")}
             </h2>
             <p className="text-lg md:text-xl text-gray-300 mt-4 max-w-lg mx-auto">
-              Building Scalable Web Applications and Intuitive User Experiences
+              {t("hero_description")}
             </p>
           </div>
 
           <div className="w-full">
             <Slider {...settings} className="px-2">
-              {skills.map((skill, index) => (
+              {skills().map((skill, index) => (
                 <div key={index} className="px-2">
                   <SkillCard
                     icon={skill.icon}
@@ -99,11 +111,11 @@ const Hero = ({ profilePic }: HeroProps) => {
           {/* Seção para baixar o currículo */}
           <div className="mt-12">
             <a
-              href="/DAVI-LUIS.pdf"
-              download
+              href={resumeLink}
+              download="DAVI_LUIS"
               className="px-8 py-4 bg-gradient-to-r from-blue-500 to-purple-600 text-white font-semibold rounded-full shadow-lg hover:shadow-xl transition-transform transform hover:scale-105"
             >
-              Download Resume
+              {t("download_resume")}
             </a>
           </div>
           

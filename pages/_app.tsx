@@ -1,15 +1,10 @@
-// pages/_app.tsx
-
-import "../styles/globals.css"; // Importe seus estilos globais
+import { appWithTranslation } from "next-i18next";
+import "../styles/globals.css";
 import type { AppProps } from "next/app";
-import { ThemeProvider } from "next-themes"; // Importando o ThemeProvider
-import Head from "next/head"; // Importando o Head para meta tags
+import { ThemeProvider } from "next-themes";
+import Head from "next/head";
+import "../i18n";
 
-/**
- * Componente principal do aplicativo Next.js
- * @param {AppProps} param0 - Propriedades do componente
- * @returns {JSX.Element} Componente MyApp
- */
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <ThemeProvider attribute="class">
@@ -23,4 +18,4 @@ function MyApp({ Component, pageProps }: AppProps) {
   );
 }
 
-export default MyApp;
+export default appWithTranslation(MyApp);

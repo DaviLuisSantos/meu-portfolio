@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { ModalContext } from "../contexts/ModalContext";
 import Image from "next/image";
+import { useTranslation } from "react-i18next";
 
 interface SkillCardProps {
   icon: React.ReactNode;
@@ -24,6 +25,7 @@ const SkillCard = ({
   imageUrl,
 }: SkillCardProps) => {
   const { openModal, closeModal } = useContext(ModalContext);
+  const { t } = useTranslation();
 
   const handleCardClick = () => {
     openModal(
@@ -49,10 +51,10 @@ const SkillCard = ({
           </div>
           <p className="text-gray-300 text-lg mb-4">{description}</p>
           <p className="text-gray-400 text-sm mb-2">
-            <strong>Experience:</strong> {experience}
+            <strong>{t("skill_experience")}:</strong> {experience}
           </p>
           <div>
-            <strong className="text-gray-400">Projects:</strong>
+            <strong className="text-gray-400">{t("skill_projects")}:</strong>
             <ul className="list-disc pl-5 text-gray-300 mt-2">
               {projects.map((project, index) => (
                 <li key={index}>{project}</li>

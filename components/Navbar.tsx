@@ -1,19 +1,21 @@
 import { useState } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
 import { Link } from "react-scroll"; // Importing Link from react-scroll
+import { useTranslation } from "react-i18next";
 
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const { t } = useTranslation();
 
   const toggleMenu = () => setIsMobileMenuOpen((prev) => !prev);
 
   const closeMenu = () => setIsMobileMenuOpen(false);
 
   const links = [
-    { to: "hero", label: "Resume" },
-    { to: "about", label: "About" },
-    { to: "projects", label: "Projects" },
-    { to: "contact", label: "Contact" },
+    { to: "hero", label: t("home") },
+    { to: "about", label: t("about") },
+    { to: "projects", label: t("projects") },
+    { to: "contact", label: t("contact") },
   ];
 
   return (
@@ -26,7 +28,7 @@ const Navbar = () => {
           smooth={true}
           duration={500}
         >
-          My Portfolio
+          {t("home")}
         </Link>
 
         {/* Hamburger Button */}

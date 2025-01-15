@@ -7,7 +7,8 @@
 
 /* Tema claro e escuro */
 :root {
-  --background: #ededed; /* Tema claro */
+  --background: #ededed;
+  /* Tema claro */
   --foreground: #080032;
 }
 
@@ -15,11 +16,13 @@ body {
   color: var(--foreground);
   background: var(--background);
   font-family: "Inter", Arial, Helvetica, sans-serif;
-  transition: background 0.3s ease, color 0.3s ease; /* Transição suave ao alternar os temas */
+  transition: background 0.3s ease, color 0.3s ease;
+  /* Transição suave ao alternar os temas */
 }
 
 body.dark {
-  --background: #060021; /* Tema escuro */
+  --background: #060021;
+  /* Tema escuro */
   --foreground: #ededed;
 }
 
@@ -29,6 +32,7 @@ body.dark {
     --foreground: #ededed;
   }
 }
+
 section {
   position: relative;
   z-index: 1;
@@ -36,8 +40,10 @@ section {
 }
 
 section.scrolled {
-  transform: translateY(-100vh);  /* Move a próxima seção para cima */
-  opacity: 1;  /* Certifique-se de que a opacidade não se altere abruptamente */
-  z-index: 2;  /* A próxima seção fica acima da anterior */
+  transform: translateY(-100vh);
+  /* Move a próxima seção para cima */
+  opacity: 1;
+  /* Certifique-se de que a opacidade não se altere abruptamente */
+  z-index: 2;
+  /* A próxima seção fica acima da anterior */
 }
-
