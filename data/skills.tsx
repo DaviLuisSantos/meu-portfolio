@@ -8,7 +8,7 @@ import {
 } from "react-icons/si";
 import { useTranslation } from "react-i18next";
 
-export const skills = () => {
+export const Skills = () => {
   const { t, i18n } = useTranslation();
 
   const experienceSuffix = i18n.language === 'pt' ? ' anos' : ' years';

@@ -1,7 +1,8 @@
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import Slider from "react-slick";
 import SkillCard from "./SkillCard"; // Import SkillCard
-import { skills } from "../data/skills"; // Certifique-se de que o caminho está correto
+import { Skills } from "../data/skills"; // Certifique-se de que o caminho está correto
 import { ModalProvider } from "../contexts/ModalContext";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -14,9 +15,29 @@ interface HeroProps {
 }
 
 const Hero = ({ profilePic }: HeroProps) => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const router = useRouter();
   const { locale } = router; // Get the current locale from the router
+
+  const [resumeLink, setResumeLink] = useState(
+    locale === "en" ? "/DAVI-LUIS-EN.pdf" : "/DAVI-LUIS-PT.pdf"
+  );
+
+  useEffect(() => {
+    const handleLanguageChange = (lng: string) => {
+      setResumeLink(lng === "en" ? "/DAVI-LUIS-EN.pdf" : "/DAVI-LUIS-PT.pdf");
+    };
+
+    i18n.on("languageChanged", handleLanguageChange);
+
+    return () => {
+      i18n.off("languageChanged", handleLanguageChange);
+    };
+  }, [i18n]);
+
+  useEffect(() => {
+    setResumeLink(locale === "en" ? "/DAVI-LUIS-EN.pdf" : "/DAVI-LUIS-PT.pdf");
+  }, [locale]);
 
   const settings = {
     dots: true,
@@ -49,7 +70,8 @@ const Hero = ({ profilePic }: HeroProps) => {
     ],
   };
 
-  const resumeLink = locale === "en" ? "/DAVI-LUIS-EN.pdf" : "/DAVI-LUIS-PT.pdf";
+  const downloadName =
+    locale === "en" ? "Davi_Luis_Resume_EN.pdf" : "Davi_Luis_Curriculo_PT.pdf";
 
   return (
     <ModalProvider>
@@ -91,7 +113,7 @@ const Hero = ({ profilePic }: HeroProps) => {
 
           <div className="w-full">
             <Slider {...settings} className="px-2">
-              {skills().map((skill, index) => (
+              {Skills().map((skill, index) => (
                 <div key={index} className="px-2">
                   <SkillCard
                     icon={skill.icon}
@@ -118,7 +140,6 @@ const Hero = ({ profilePic }: HeroProps) => {
               {t("download_resume")}
             </a>
           </div>
-          
         </div>
       </section>
     </ModalProvider>
