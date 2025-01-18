@@ -22,7 +22,7 @@ const Projects = () => {
       description: t("project_wallet_manager_description"),
       image: "/images/wallet-manager.png", // Change the image path to the correct one
       githubLink: "https://github.com/DaviLuisSantos/wallet-frontend",
-      liveLink: "https://www.walletmanager.com",
+      liveLink: "",
       technologies: [
         <SiNextdotjs key="nextjs" />,
         <SiDotnet key="dotnet" />,
@@ -33,8 +33,8 @@ const Projects = () => {
       title: t("project_visitor_control_title"),
       description: t("project_visitor_control_description"),
       image: "/images/controle-visitantes.png",
-      githubLink: "https://github.com/DaviLuisSantos/controle-visitantes",
-      liveLink: "https://www.controle-visitantes.com",
+      githubLink: "https://github.com/DaviLuisSantos/migration_papa-fila",
+      liveLink: "",
       technologies: [
         <SiEjs key="ejs" />,
         <SiExpress key="express" />,
@@ -46,7 +46,7 @@ const Projects = () => {
       description: t("project_license_plate_description"),
       image: "/images/license-plate-system.png", // Adjust the image path if necessary
       githubLink: "https://github.com/DaviLuisSantos/Servidor_LPR_Alphadigi",
-      liveLink: "https://www.licenseplatesystem.com",
+      liveLink: "",
       technologies: [
         <FaNodeJs key="nodejs" />,
         <SiSequelize key="sequelize" />,
