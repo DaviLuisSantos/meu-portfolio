@@ -61,12 +61,11 @@ body {
     radial-gradient(40% 55% at 100% 45%, color-mix(in oklab, var(--cobalt) 22%, transparent), transparent 70%);
 }
 
-/* Retrato com rim light: violeta à esquerda, cobalto à direita. */
+/* Retrato com rim light acompanhando a luz da foto: cobalto à esquerda, violeta à direita. */
 .split-portrait {
-  filter: grayscale(1) contrast(1.1) brightness(0.95);
   box-shadow:
-    -14px 0 36px -10px var(--violet),
-    14px 0 36px -10px var(--cobalt);
+    -14px 0 40px -10px var(--cobalt),
+    14px 0 40px -10px var(--violet);
 }
 
 /* Botão principal: borda em gradiente violeta → cobalto, brilho dividido no hover. */
