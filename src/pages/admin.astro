@@ -1,0 +1,78 @@
+---
+import '../styles/global.css';
+import { requireAdmin } from '../lib/admin';
+import { listLeads } from '../lib/leads';
+
+export const prerender = false;
+
+const denied = requireAdmin(Astro.request);
+if (denied) return denied;
+
+const leads = await listLeads();
+const fmt = (iso: string) => new Date(iso).toLocaleString('pt-BR', { timeZone: 'America/Sao_Paulo' });
+---
+
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>Downloads do currículo</title>
+  </head>
+  <body class="min-h-dvh">
+    <main class="mx-auto max-w-6xl px-4 py-12 sm:px-6">
+      <p class="font-mono text-sm text-cobalt">// admin</p>
+      <div class="mt-2 flex flex-wrap items-end justify-between gap-4">
+        <h1 class="font-serif text-4xl">Downloads do currículo</h1>
+        <a href="/api/leads.csv" class="font-mono text-sm text-muted hover:text-fg">exportar csv ↓</a>
+      </div>
+      <p class="mt-2 font-mono text-sm text-muted">{leads.length} registro(s)</p>
+
+      {
+        leads.length === 0 ? (
+          <p class="mt-10 text-muted">Ninguém baixou ainda.</p>
+        ) : (
+          <div class="mt-8 overflow-x-auto border border-border">
+            <table class="w-full text-left text-sm">
+              <thead class="font-mono text-xs text-muted uppercase">
+                <tr class="border-b border-border">
+                  <th class="px-4 py-3">Data</th>
+                  <th class="px-4 py-3">Nome</th>
+                  <th class="px-4 py-3">E-mail</th>
+                  <th class="px-4 py-3">Empresa</th>
+                  <th class="px-4 py-3">LinkedIn</th>
+                  <th class="px-4 py-3">CV</th>
+                  <th class="px-4 py-3">País</th>
+                </tr>
+              </thead>
+              <tbody>
+                {leads.map((l) => (
+                  <tr class="border-b border-border/60 last:border-0">
+                    <td class="px-4 py-3 whitespace-nowrap text-muted">{fmt(l.at)}</td>
+                    <td class="px-4 py-3">{l.name}</td>
+                    <td class="px-4 py-3">
+                      <a href={`mailto:${l.email}`} class="hover:text-cobalt">{l.email}</a>
+                    </td>
+                    <td class="px-4 py-3">{l.company || '—'}</td>
+                    <td class="px-4 py-3">
+                      {l.linkedin ? (
+                        <a href={l.linkedin.startsWith('http') ? l.linkedin : `https://${l.linkedin}`} target="_blank" rel="noopener noreferrer" class="hover:text-cobalt">
+                          perfil ↗
+                        </a>
+                      ) : (
+                        '—'
+                      )}
+                    </td>
+                    <td class="px-4 py-3 font-mono uppercase">{l.lang}</td>
+                    <td class="px-4 py-3 font-mono">{l.country || '—'}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        )
+      }
+    </main>
+  </body>
+</html>

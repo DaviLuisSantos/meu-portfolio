@@ -1,5 +1,6 @@
 ---
-import ProjectCard from './ProjectCard.astro';
+import ProjectRow from './ProjectRow.astro';
+import SectionLabel from './SectionLabel.astro';
 import type { Lang } from '../i18n/ui';
 import { useTranslations } from '../i18n/utils';
 import { getProjects } from '../lib/projects';
@@ -9,17 +10,20 @@ const t = useTranslations(lang);
 const projects = await getProjects(lang);
 ---
 
-<section id="projects" class="mx-auto max-w-5xl px-4 pb-24 sm:px-6">
-  <h2 class="reveal text-3xl font-bold tracking-tight">{t('projects.title')}</h2>
+<section id="projects" class="mx-auto max-w-6xl px-4 pt-24 pb-16 sm:px-6 sm:pt-32">
+  <div class="reveal">
+    <SectionLabel index="01" label={t('projects.title')} />
+    <h2 class="mt-4 font-serif text-5xl sm:text-6xl">{t('projects.heading')}</h2>
+  </div>
   {
     projects.length > 0 ? (
-      <div class="mt-8 grid gap-6 sm:grid-cols-2">
-        {projects.map((project) => (
-          <ProjectCard lang={lang} project={project} />
+      <div class="mt-12 border-b border-border">
+        {projects.map((project, index) => (
+          <ProjectRow lang={lang} project={project} index={index} />
         ))}
       </div>
     ) : (
-      <p class="mt-6 text-muted">{t('projects.empty')}</p>
+      <p class="mt-8 text-muted">{t('projects.empty')}</p>
     )
   }
 </section>

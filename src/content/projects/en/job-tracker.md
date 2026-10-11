@@ -1,6 +1,7 @@
 ---
 title: Job Tracker
 summary: Collects job listings from Seek (Australia), scores each one from 0 to 100 against a configurable profile and shows everything on a local web dashboard.
+highlight: asyncio · 0–100 fit score
 tags: [Python, asyncio, httpx, Playwright, SQLite, Flask]
 repo: https://github.com/DaviLuisSantos/job-tracker
 order: 4

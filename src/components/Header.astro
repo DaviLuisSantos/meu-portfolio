@@ -1,5 +1,4 @@
 ---
-import { Icon } from 'astro-icon/components';
 import type { Lang } from '../i18n/ui';
 import { otherLang, paths, useTranslations } from '../i18n/utils';
 
@@ -18,26 +17,29 @@ const links = [
 ];
 ---
 
-<header class="sticky top-0 z-50 border-b border-border/60 bg-bg/80 backdrop-blur">
-  <nav class="mx-auto flex h-16 max-w-5xl items-center justify-between gap-4 px-4 sm:px-6">
-    <a href={home} class="font-semibold tracking-tight">Davi Luis</a>
-    <div class="flex items-center gap-1 text-sm sm:gap-2">
+<header class="sticky top-0 z-40 border-b border-border/70 bg-bg/75 backdrop-blur-md">
+  <nav class="mx-auto flex h-14 max-w-6xl items-center justify-between gap-4 px-4 font-mono text-xs sm:px-6 sm:text-sm">
+    <a href={home} class="group flex items-center gap-2 tracking-widest uppercase">
+      <span class="text-split transition-transform group-hover:rotate-45">◆</span>
+      <span>Davi Luis</span>
+    </a>
+    <div class="flex items-center gap-0.5 sm:gap-2">
       {
         links.map((link) => (
-          <a href={link.href} class="rounded-md px-2 py-1.5 text-muted transition-colors hover:text-fg sm:px-3">
+          <a href={link.href} class="hidden rounded px-2 py-1.5 text-muted transition-colors hover:text-fg min-[420px]:inline-block sm:px-3">
             {link.label}
           </a>
         ))
       }
+      <span class="mx-1 hidden h-4 w-px bg-border min-[420px]:block"></span>
       <a
         href={alternate}
         hreflang={otherLang(lang)}
         title={t('nav.switch')}
         aria-label={t('nav.switch')}
-        class="ml-1 inline-flex items-center gap-1 rounded-md border border-border px-2 py-1.5 font-medium uppercase transition-colors hover:border-accent hover:text-accent"
+        class="rounded px-2 py-1.5 text-muted transition-colors hover:text-fg"
       >
-        <Icon name="lucide:languages" class="size-4" />
-        {otherLang(lang)}
+        <span class="text-fg">{lang}</span><span class="mx-1 text-border">/</span>{otherLang(lang)}
       </a>
     </div>
   </nav>

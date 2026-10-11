@@ -1,6 +1,7 @@
 ---
 title: CYD Desk Panel
 summary: Firmware para o ESP32 "Cheap Yellow Display" que vira um painel de mesa com dados do PC, processos, rede e cotações, alimentado por um agente Python na rede local.
+highlight: firmware ESP32 · agente Python
 tags: [ESP32, C++, PlatformIO, TFT_eSPI, Python]
 order: 5
 ---

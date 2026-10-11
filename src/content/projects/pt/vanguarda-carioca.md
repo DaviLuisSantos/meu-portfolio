@@ -1,6 +1,7 @@
 ---
 title: Vanguarda Carioca
 summary: Landing page da marca carioca de streetwear e lifestyle Vanguarda Carioca, com lista de espera por e-mail e SEO estruturado.
+highlight: no ar · SEO estruturado
 tags: [Next.js 16, React 19, TypeScript, Tailwind CSS 4, Firebase, Vercel]
 demo: https://www.vanguardacarioca.com.br
 order: 7

@@ -4,42 +4,41 @@ import { Icon } from 'astro-icon/components';
 import profilePic from '../assets/profile.jpg';
 import { profile } from '../data/profile';
 import type { Lang } from '../i18n/ui';
-import { resumeUrl, useTranslations } from '../i18n/utils';
+import { paths, useTranslations } from '../i18n/utils';
 
 const { lang } = Astro.props as { lang: Lang };
 const t = useTranslations(lang);
 ---
 
-<section class="mx-auto max-w-5xl px-4 pt-16 pb-20 sm:px-6 sm:pt-24">
-  <div class="flex flex-col-reverse items-start gap-10 sm:flex-row sm:items-center sm:justify-between">
-    <div class="max-w-xl">
-      <p class="font-medium text-accent">{t('hero.role')}</p>
-      <h1 class="mt-2 text-5xl font-bold tracking-tight sm:text-6xl">{profile.name}</h1>
-      <p class="mt-5 text-lg text-pretty text-muted">{t('hero.tagline')}</p>
+<section class="relative overflow-hidden">
+  <div class="split-light"></div>
+  <div class="relative mx-auto grid max-w-6xl items-center gap-12 px-4 pt-20 pb-24 sm:px-6 sm:pt-28 sm:pb-32 md:grid-cols-[1fr_auto]">
+    <div>
+      <p class="rise font-mono text-sm text-cobalt" style="--delay: 0s">
+        <span class="text-muted">&gt;</span> {profile.name.toLowerCase()} · {t('hero.kicker')}
+      </p>
+      <h1 class="rise mt-6 font-serif text-6xl leading-[0.95] tracking-tight sm:text-7xl lg:text-8xl" style="--delay: 0.1s">
+        {t('hero.title.1')}<br />
+        <em class="text-split pr-2">{t('hero.title.2')}</em>
+      </h1>
+      <p class="rise mt-8 max-w-xl text-lg text-pretty text-muted" style="--delay: 0.2s">{t('hero.tagline')}</p>
 
-      <div class="mt-8 flex flex-wrap items-center gap-3">
-        <a
-          href={resumeUrl(lang)}
-          download
-          class="inline-flex items-center gap-2 rounded-lg bg-accent px-5 py-2.5 font-medium text-accent-fg transition hover:opacity-90"
-        >
-          <Icon name="lucide:download" class="size-4" />
+      <div class="rise mt-10 flex flex-wrap items-center gap-3" style="--delay: 0.3s">
+        <a href={paths.resume(lang)} data-resume-open class="btn-glow inline-flex items-center gap-2 rounded-md px-5 py-3 font-medium">
+          <Icon name="lucide:file-text" class="size-4" />
           {t('hero.resume')}
         </a>
-        <a
-          href="#projects"
-          class="inline-flex items-center gap-2 rounded-lg border border-border px-5 py-2.5 font-medium transition-colors hover:border-fg"
-        >
-          {t('hero.projects')}
+        <a href="#projects" class="inline-flex items-center gap-2 rounded-md px-5 py-3 font-medium text-muted transition-colors hover:text-fg">
+          {t('hero.projects')} <span aria-hidden="true">↓</span>
         </a>
       </div>
 
-      <ul class="mt-8 flex gap-4">
+      <ul class="rise mt-10 flex gap-5" style="--delay: 0.4s">
         {
           profile.socials.map((s) => (
             <li>
               <a href={s.href} target="_blank" rel="noopener noreferrer" aria-label={s.label} class="text-muted transition-colors hover:text-fg">
-                <Icon name={s.icon} class="size-6" />
+                <Icon name={s.icon} class="size-5" />
               </a>
             </li>
           ))
@@ -47,14 +46,16 @@ const t = useTranslations(lang);
       </ul>
     </div>
 
-    <Image
-      src={profilePic}
-      alt={profile.name}
-      width={176}
-      height={176}
-      densities={[1, 2]}
-      loading="eager"
-      class="size-32 rounded-full object-cover ring-4 ring-border sm:size-44"
-    />
+    <div class="rise order-first md:order-none" style="--delay: 0.15s">
+      <Image
+        src={profilePic}
+        alt={profile.name}
+        width={256}
+        height={256}
+        densities={[1, 2]}
+        loading="eager"
+        class="split-portrait size-36 rounded-full object-cover sm:size-48 lg:size-64"
+      />
+    </div>
   </div>
 </section>

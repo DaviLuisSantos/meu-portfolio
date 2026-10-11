@@ -13,6 +13,8 @@ const projects = defineCollection({
     z.object({
       title: z.string(),
       summary: z.string(),
+      /** Linha curta em destaque no card, ex.: "em produção · 1.300+ testes". */
+      highlight: z.string().optional(),
       tags: z.array(z.string()).default([]),
       cover: image().optional(),
       repo: z.url().optional(),

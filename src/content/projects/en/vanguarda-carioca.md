@@ -1,6 +1,7 @@
 ---
 title: Vanguarda Carioca
 summary: Landing page for Rio de Janeiro streetwear and lifestyle brand Vanguarda Carioca, with an email waitlist and structured-data SEO.
+highlight: live · structured-data SEO
 tags: [Next.js 16, React 19, TypeScript, Tailwind CSS 4, Firebase, Vercel]
 demo: https://www.vanguardacarioca.com.br
 order: 7

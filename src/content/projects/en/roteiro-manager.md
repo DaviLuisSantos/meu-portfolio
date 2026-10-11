@@ -1,6 +1,7 @@
 ---
 title: Roteiro Manager
 summary: Local web app to organize, edit and record Markdown video scripts, with a styled viewer and a built-in teleprompter.
+highlight: no framework · teleprompter
 tags: [Node.js, Express, JavaScript, HTML, CSS]
 repo: https://github.com/DaviLuisSantos/RoteiroManager
 order: 6

@@ -1,6 +1,7 @@
 ---
 title: MyBookList
 summary: Personal reading list that searches books on Google Books and organizes the library by status (not started, reading, finished) with dates.
+highlight: study project · 2025
 tags: [.NET 9, Carter, EF Core, SQLite, Next.js, Google OAuth]
 repo: https://github.com/DaviLuisSantos/MyBookList
 links:

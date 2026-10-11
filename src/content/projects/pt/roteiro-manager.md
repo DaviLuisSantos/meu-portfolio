@@ -1,6 +1,7 @@
 ---
 title: Roteiro Manager
 summary: App web local para organizar, editar e gravar roteiros de vídeo em Markdown, com visualizador formatado e teleprompter.
+highlight: sem framework · teleprompter
 tags: [Node.js, Express, JavaScript, HTML, CSS]
 repo: https://github.com/DaviLuisSantos/RoteiroManager
 order: 6

@@ -5,6 +5,7 @@ export const profile = {
     { label: 'LinkedIn', href: 'https://www.linkedin.com/in/davi-luis/', icon: 'simple-icons:linkedin' },
     { label: 'Instagram', href: 'https://www.instagram.com/davi.luissc/', icon: 'simple-icons:instagram' },
   ],
+  youtube: 'https://www.youtube.com/channel/UCryhrvnlMcEfvisWyQurlyA',
   /** Ícones: https://icon-sets.iconify.design/simple-icons/ */
   stack: [
     { label: '.NET / C#', icon: 'simple-icons:dotnet' },

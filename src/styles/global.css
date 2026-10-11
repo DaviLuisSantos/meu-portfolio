@@ -1,40 +1,36 @@
 @import "tailwindcss";
 @import "@fontsource-variable/inter";
+@import "@fontsource-variable/jetbrains-mono";
+@import "@fontsource/instrument-serif/400.css";
+@import "@fontsource/instrument-serif/400-italic.css";
 @plugin "@tailwindcss/typography";
 
+/*
+ * Cyber-Stoicism: preto absoluto, luz dividida entre violeta e cobalto.
+ * Cobalto, nunca ciano ou verde-água. Sem cores quentes.
+ */
 :root {
-  --bg: #fafaf9;
-  --surface: #ffffff;
-  --border: #e7e5e4;
-  --fg: #1c1917;
-  --muted: #57534e;
-  --accent: #4f46e5;
-  --accent-fg: #ffffff;
-  color-scheme: light;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --bg: #0c0a09;
-    --surface: #1c1917;
-    --border: #292524;
-    --fg: #f5f5f4;
-    --muted: #a8a29e;
-    --accent: #818cf8;
-    --accent-fg: #0c0a09;
-    color-scheme: dark;
-  }
+  --bg: #000000;
+  --surface: #07070b;
+  --border: #1a1a24;
+  --fg: #ededf2;
+  --muted: #8a8a9c;
+  --cobalt: #4d6bff;
+  --violet: #9d6bff;
+  color-scheme: dark;
 }
 
 @theme inline {
   --font-sans: "Inter Variable", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Instrument Serif", ui-serif, Georgia, serif;
+  --font-mono: "JetBrains Mono Variable", ui-monospace, monospace;
   --color-bg: var(--bg);
   --color-surface: var(--surface);
   --color-border: var(--border);
   --color-fg: var(--fg);
   --color-muted: var(--muted);
-  --color-accent: var(--accent);
-  --color-accent-fg: var(--accent-fg);
+  --color-cobalt: var(--cobalt);
+  --color-violet: var(--violet);
 }
 
 html {
@@ -46,13 +42,76 @@ body {
   @apply bg-bg font-sans text-fg antialiased;
 }
 
+::selection {
+  background: color-mix(in oklab, var(--violet) 45%, transparent);
+}
+
+:focus-visible {
+  outline: 2px solid var(--cobalt);
+  outline-offset: 3px;
+}
+
+/* Luz dividida: violeta de um lado, cobalto do outro. */
+.split-light {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(40% 55% at 0% 30%, color-mix(in oklab, var(--violet) 22%, transparent), transparent 70%),
+    radial-gradient(40% 55% at 100% 45%, color-mix(in oklab, var(--cobalt) 22%, transparent), transparent 70%);
+}
+
+/* Retrato com rim light: violeta à esquerda, cobalto à direita. */
+.split-portrait {
+  filter: grayscale(1) contrast(1.1) brightness(0.95);
+  box-shadow:
+    -14px 0 36px -10px var(--violet),
+    14px 0 36px -10px var(--cobalt);
+}
+
+/* Botão principal: borda em gradiente violeta → cobalto, brilho dividido no hover. */
+.btn-glow {
+  position: relative;
+  isolation: isolate;
+  border: 1px solid transparent;
+  transition: box-shadow 0.3s ease;
+}
+.btn-glow::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  z-index: -2;
+  border-radius: inherit;
+  background: linear-gradient(90deg, var(--violet), var(--cobalt));
+}
+.btn-glow::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: inherit;
+  background: var(--bg);
+}
+.btn-glow:hover {
+  box-shadow:
+    -8px 0 28px -6px color-mix(in oklab, var(--violet) 70%, transparent),
+    8px 0 28px -6px color-mix(in oklab, var(--cobalt) 70%, transparent);
+}
+
+.text-split {
+  background: linear-gradient(90deg, var(--violet), var(--cobalt));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
 /* Revela as seções ao rolar, sem JavaScript (só onde o navegador suporta) */
 @supports (animation-timeline: view()) {
   @media (prefers-reduced-motion: no-preference) {
     .reveal {
       animation: reveal linear both;
       animation-timeline: view();
-      animation-range: entry 0% entry 40%;
+      animation-range: entry 0% entry 35%;
     }
   }
 }
@@ -61,6 +120,22 @@ body {
   from {
     opacity: 0;
     transform: translateY(1.5rem);
+  }
+}
+
+/* Entrada do hero ao carregar a página. */
+@media (prefers-reduced-motion: no-preference) {
+  .rise {
+    animation: rise 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+    animation-delay: var(--delay, 0s);
+  }
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(0.75rem);
+    filter: blur(6px);
   }
 }
 

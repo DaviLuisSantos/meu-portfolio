@@ -15,6 +15,5 @@ export const paths = {
   home: (lang: Lang) => (lang === 'pt' ? '/' : '/en/'),
   project: (lang: Lang, slug: string) =>
     lang === 'pt' ? `/projetos/${slug}/` : `/en/projects/${slug}/`,
+  resume: (lang: Lang) => (lang === 'pt' ? '/curriculo/' : '/en/resume/'),
 };
-
-export const resumeUrl = (lang: Lang) => (lang === 'pt' ? '/DAVI-LUIS-PT.pdf' : '/DAVI-LUIS-EN.pdf');

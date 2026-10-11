@@ -1,0 +1,76 @@
+---
+import { Icon } from 'astro-icon/components';
+import type { Lang } from '../i18n/ui';
+import { paths, useTranslations } from '../i18n/utils';
+import { projectSlug, type Project } from '../lib/projects';
+
+interface Props {
+  lang: Lang;
+  project: Project;
+  index: number;
+}
+
+const { lang, project, index } = Astro.props;
+const { title, summary, highlight, tags, repo, demo, links, draft } = project.data;
+const t = useTranslations(lang);
+const href = project.body?.trim() ? paths.project(lang, projectSlug(project)) : null;
+const number = String(index + 1).padStart(2, '0');
+
+const external = [
+  repo && { label: t('projects.repo'), href: repo, icon: 'simple-icons:github' },
+  demo && { label: t('projects.demo'), href: demo, icon: 'lucide:arrow-up-right' },
+  ...links.map((l) => ({ ...l, icon: 'lucide:arrow-up-right' })),
+].filter(Boolean) as { label: string; href: string; icon: string }[];
+---
+
+<article class="reveal group relative grid gap-x-8 gap-y-4 border-t border-border py-10 sm:grid-cols-[4rem_1fr] lg:grid-cols-[4rem_1fr_16rem]">
+  <!-- Linha de luz que acende no hover -->
+  <span
+    class="absolute -top-px left-0 h-px w-0 bg-gradient-to-r from-violet to-cobalt transition-all duration-500 group-hover:w-full"
+    aria-hidden="true"></span>
+
+  <p class="font-mono text-sm text-muted transition-colors group-hover:text-cobalt">{number}</p>
+
+  <div>
+    <h3 class="font-serif text-3xl leading-tight sm:text-4xl">
+      {
+        href ? (
+          <a href={href} class="after:absolute after:inset-0 after:content-['']">
+            {title}
+          </a>
+        ) : (
+          title
+        )
+      }
+      {draft && <span class="ml-2 align-middle font-mono text-xs text-violet">[draft]</span>}
+    </h3>
+    {highlight && <p class="mt-2 font-mono text-xs text-cobalt">{highlight}</p>}
+    <p class="mt-4 max-w-2xl text-pretty text-muted">{summary}</p>
+    {
+      href && (
+        <p class="mt-4 font-mono text-xs text-muted transition-colors group-hover:text-fg">
+          {t('projects.details')} <span aria-hidden="true" class="inline-block transition-transform group-hover:translate-x-1">→</span>
+        </p>
+      )
+    }
+  </div>
+
+  <div class="flex flex-col gap-4 sm:col-start-2 lg:col-start-auto">
+    <ul class="flex flex-wrap gap-x-3 gap-y-1 font-mono text-xs text-muted lg:flex-col">
+      {tags.map((tag) => <li>{tag}</li>)}
+    </ul>
+    {
+      external.length > 0 && (
+        <ul class="relative z-10 flex flex-wrap gap-x-4 gap-y-2 font-mono text-xs">
+          {external.map((link) => (
+            <li>
+              <a href={link.href} target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-fg/80 transition-colors hover:text-cobalt">
+                <Icon name={link.icon} class="size-3.5" /> {link.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      )
+    }
+  </div>
+</article>

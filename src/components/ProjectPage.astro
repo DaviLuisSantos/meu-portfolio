@@ -13,7 +13,7 @@ interface Props {
 }
 
 const { lang, project } = Astro.props;
-const { title, summary, tags, cover, repo, demo, links } = project.data;
+const { title, summary, highlight, tags, cover, repo, demo, links } = project.data;
 const t = useTranslations(lang);
 const { Content } = await render(project);
 
@@ -22,47 +22,49 @@ const other = otherLang(lang);
 const slug = projectSlug(project);
 const translated = (await getProjects(other)).some((p) => projectSlug(p) === slug);
 const alternate = translated ? paths.project(other, slug) : paths.home(other);
+
+const external = [
+  repo && { label: t('projects.repo'), href: repo, icon: 'simple-icons:github' },
+  demo && { label: t('projects.demo'), href: demo, icon: 'lucide:arrow-up-right' },
+  ...links.map((l) => ({ ...l, icon: 'lucide:arrow-up-right' })),
+].filter(Boolean) as { label: string; href: string; icon: string }[];
 ---
 
 <Layout lang={lang} alternate={alternate} title={title} description={summary}>
-  <article class="mx-auto max-w-3xl px-4 py-12 sm:px-6 sm:py-16">
-    <a href={`${paths.home(lang)}#projects`} class="inline-flex items-center gap-1 text-sm text-muted hover:text-fg">
-      <Icon name="lucide:arrow-left" class="size-4" />
-      {t('projects.back')}
-    </a>
+  <article>
+    <header class="relative overflow-hidden border-b border-border">
+      <div class="split-light opacity-70"></div>
+      <div class="relative mx-auto max-w-3xl px-4 pt-12 pb-14 sm:px-6 sm:pt-16">
+        <a href={`${paths.home(lang)}#projects`} class="inline-flex items-center gap-1.5 font-mono text-xs text-muted transition-colors hover:text-fg">
+          <Icon name="lucide:arrow-left" class="size-3.5" />
+          {t('projects.back')}
+        </a>
+        <h1 class="rise mt-8 font-serif text-5xl leading-tight sm:text-6xl">{title}</h1>
+        {highlight && <p class="rise mt-3 font-mono text-sm text-cobalt" style="--delay: 0.1s">{highlight}</p>}
+        <p class="rise mt-6 text-lg text-pretty text-muted" style="--delay: 0.15s">{summary}</p>
 
-    <h1 class="mt-6 text-4xl font-bold tracking-tight">{title}</h1>
-    <p class="mt-4 text-lg text-muted">{summary}</p>
+        <div class="rise mt-8 flex flex-wrap items-center gap-x-6 gap-y-3 font-mono text-xs" style="--delay: 0.2s">
+          {
+            external.map((link) => (
+              <a href={link.href} target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-fg/80 transition-colors hover:text-cobalt">
+                <Icon name={link.icon} class="size-3.5" /> {link.label}
+              </a>
+            ))
+          }
+        </div>
+        <ul class="mt-6 flex flex-wrap gap-x-3 gap-y-1 font-mono text-xs text-muted">
+          {tags.map((tag) => <li>{tag}</li>)}
+        </ul>
+      </div>
+    </header>
 
-    <div class="mt-6 flex flex-wrap items-center gap-4 text-sm">
-      {tags.map((tag) => <span class="rounded-md bg-surface px-2 py-0.5 text-muted">{tag}</span>)}
-      {
-        repo && (
-          <a href={repo} target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 font-medium hover:text-accent">
-            <Icon name="simple-icons:github" class="size-4" /> {t('projects.repo')}
-          </a>
-        )
-      }
-      {
-        demo && (
-          <a href={demo} target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 font-medium hover:text-accent">
-            <Icon name="lucide:arrow-up-right" class="size-4" /> {t('projects.demo')}
-          </a>
-        )
-      }
-      {
-        links.map((link) => (
-          <a href={link.href} target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 hover:text-accent">
-            <Icon name="lucide:external-link" class="size-4" /> {link.label}
-          </a>
-        ))
-      }
-    </div>
-
-    {cover && <Image src={cover} alt="" widths={[768, 1536]} sizes="(min-width: 768px) 768px, 100vw" class="mt-10 w-full rounded-xl border border-border" />}
-
-    <div class="prose mt-10 max-w-none prose-neutral dark:prose-invert prose-a:text-accent">
-      <Content />
+    <div class="mx-auto max-w-3xl px-4 py-14 sm:px-6">
+      {cover && <Image src={cover} alt="" widths={[768, 1536]} sizes="(min-width: 768px) 768px, 100vw" class="mb-12 w-full rounded-lg border border-border" />}
+      <div
+        class="prose prose-lg max-w-none prose-invert prose-headings:font-serif prose-headings:font-normal prose-h2:text-4xl prose-a:text-cobalt prose-strong:text-fg prose-code:font-mono prose-code:text-violet prose-code:before:content-none prose-code:after:content-none prose-blockquote:border-violet prose-blockquote:font-serif prose-blockquote:text-xl prose-li:marker:text-cobalt"
+      >
+        <Content />
+      </div>
     </div>
   </article>
 </Layout>

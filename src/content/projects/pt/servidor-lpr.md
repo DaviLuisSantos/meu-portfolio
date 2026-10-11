@@ -1,6 +1,7 @@
 ---
 title: Servidor LPR para controle de acesso veicular
 summary: Servidor .NET on-premise que integra câmeras de leitura de placas de vários fabricantes a um sistema de controle de acesso e decide a liberação em tempo real.
+highlight: em produção · 1.300+ testes · 80+ releases
 tags: [.NET 10, ASP.NET Core, Firebird, SQLite, MediatR, GitHub Actions]
 links:
   - label: Releases

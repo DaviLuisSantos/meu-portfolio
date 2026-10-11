@@ -1,6 +1,7 @@
 ---
 title: ControlId.Net
 summary: Open source (unofficial) .NET library for integrating Control iD access-control devices and REP time clocks, published on NuGet.
+highlight: published on NuGet · 144 tests
 tags: [.NET 8, .NET Standard 2.0, ASP.NET Core, xUnit, GitHub Actions]
 repo: https://github.com/DaviLuisSantos/ControlId.Net
 links:

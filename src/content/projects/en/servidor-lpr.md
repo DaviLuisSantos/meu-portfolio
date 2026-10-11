@@ -1,6 +1,7 @@
 ---
 title: LPR vehicle access-control server
 summary: On-premise .NET server that connects license plate recognition cameras from several vendors to an access-control system and decides gate access in real time.
+highlight: in production · 1,300+ tests · 80+ releases
 tags: [.NET 10, ASP.NET Core, Firebird, SQLite, MediatR, GitHub Actions]
 links:
   - label: Releases

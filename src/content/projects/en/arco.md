@@ -1,6 +1,7 @@
 ---
 title: Arco — habit tracker
 summary: Web app (PWA) to track daily habits with weights and partial check-ins, producing a daily and weekly consistency score.
+highlight: live · PWA · continuous deploy to Azure
 tags: [.NET 9, EF Core, MediatR, Next.js 16, TanStack Query, Tailwind CSS 4]
 repo: https://github.com/DaviLuisSantos/HabitSystem
 demo: https://habit-system-front.vercel.app

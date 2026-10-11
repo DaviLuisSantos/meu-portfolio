@@ -1,0 +1,72 @@
+---
+import type { Lang } from '../i18n/ui';
+import { useTranslations } from '../i18n/utils';
+
+interface Props {
+  lang: Lang;
+  /** Erro vindo do envio sem JavaScript (?erro=...). */
+  error?: string | null;
+  /** Prefixo dos ids, para o formulário poder aparecer duas vezes na mesma página. */
+  idPrefix?: string;
+}
+
+const { lang, error, idPrefix = 'dialog' } = Astro.props;
+const t = useTranslations(lang);
+const errorText = error === 'rate' ? t('resume.error.rate') : error ? t('resume.error.invalid') : '';
+
+const field =
+  'mt-1.5 w-full rounded-md border border-border bg-surface px-3.5 py-2.5 text-fg placeholder:text-muted/60 transition-colors focus:border-cobalt focus:outline-none';
+const label = 'block font-mono text-xs tracking-wide text-muted uppercase';
+---
+
+<form
+  method="post"
+  action="/api/curriculo"
+  data-resume-form
+  data-msg-invalid={t('resume.error.invalid')}
+  data-msg-rate={t('resume.error.rate')}
+  data-msg-network={t('resume.error.network')}
+  data-msg-sending={t('resume.sending')}
+  class="space-y-4"
+>
+  <input type="hidden" name="lang" value={lang} />
+  <!-- Honeypot contra robôs: fica fora da tela e fora da navegação por teclado. -->
+  <div aria-hidden="true" class="absolute -left-[9999px]">
+    <label>Website <input type="text" name="website" tabindex="-1" autocomplete="off" /></label>
+  </div>
+
+  <div>
+    <label class={label} for={`${idPrefix}-name`}>{t('resume.name')}</label>
+    <input id={`${idPrefix}-name`} name="name" required minlength="2" maxlength="100" autocomplete="name" class={field} />
+  </div>
+  <div>
+    <label class={label} for={`${idPrefix}-email`}>{t('resume.email')}</label>
+    <input id={`${idPrefix}-email`} name="email" type="email" required maxlength="200" autocomplete="email" class={field} />
+  </div>
+  <div class="grid gap-4 sm:grid-cols-2">
+    <div>
+      <label class={label} for={`${idPrefix}-company`}>
+        {t('resume.company')} <span class="normal-case opacity-60">· {t('resume.optional')}</span>
+      </label>
+      <input id={`${idPrefix}-company`} name="company" maxlength="120" autocomplete="organization" class={field} />
+    </div>
+    <div>
+      <label class={label} for={`${idPrefix}-linkedin`}>
+        {t('resume.linkedin')} <span class="normal-case opacity-60">· {t('resume.optional')}</span>
+      </label>
+      <input id={`${idPrefix}-linkedin`} name="linkedin" maxlength="200" placeholder="linkedin.com/in/…" class={field} />
+    </div>
+  </div>
+
+  <label class="flex items-start gap-3 text-sm text-muted">
+    <input type="checkbox" name="consent" required class="mt-0.5 size-4 shrink-0 accent-[var(--cobalt)]" />
+    <span>{t('resume.consent')}</span>
+  </label>
+
+  <p data-resume-error role="alert" class:list={['text-sm text-violet', !errorText && 'hidden']}>{errorText}</p>
+
+  <button type="submit" class="btn-glow w-full rounded-md px-5 py-3 font-medium disabled:opacity-60" data-label={t('resume.submit')}>
+    {t('resume.submit')}
+  </button>
+  <p class="text-xs text-muted/80">{t('resume.privacy')}</p>
+</form>

@@ -1,6 +1,7 @@
 ---
 title: Arco — rastreador de hábitos
 summary: App web (PWA) para registrar hábitos diários com pesos e check-ins parciais, gerando uma pontuação diária e semanal de consistência.
+highlight: no ar · PWA · deploy contínuo no Azure
 tags: [.NET 9, EF Core, MediatR, Next.js 16, TanStack Query, Tailwind CSS 4]
 repo: https://github.com/DaviLuisSantos/HabitSystem
 demo: https://habit-system-front.vercel.app

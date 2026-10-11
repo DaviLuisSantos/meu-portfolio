@@ -1,6 +1,7 @@
 ---
 title: ControlId.Net
 summary: Biblioteca .NET open source (não oficial) para integrar equipamentos de controle de acesso e relógios de ponto REP da Control iD, publicada no NuGet.
+highlight: publicado no NuGet · 144 testes
 tags: [.NET 8, .NET Standard 2.0, ASP.NET Core, xUnit, GitHub Actions]
 repo: https://github.com/DaviLuisSantos/ControlId.Net
 links:

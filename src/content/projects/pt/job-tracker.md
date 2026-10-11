@@ -1,6 +1,7 @@
 ---
 title: Job Tracker
 summary: Coleta vagas do Seek (Austrália), pontua cada uma de 0 a 100 conforme um perfil configurável e mostra tudo num painel web local.
+highlight: asyncio · fit score de 0 a 100
 tags: [Python, asyncio, httpx, Playwright, SQLite, Flask]
 repo: https://github.com/DaviLuisSantos/job-tracker
 order: 4
