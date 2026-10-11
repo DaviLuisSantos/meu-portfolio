@@ -5,8 +5,7 @@ import icon from 'astro-icon';
 
 // https://astro.build/config
 export default defineConfig({
-  // TODO: definir o domínio final para gerar URLs canônicas e hreflang absolutos
-  // site: 'https://seu-dominio.dev',
+  site: 'https://portifolio-daviluissantos-projects.vercel.app',
   i18n: {
     defaultLocale: 'pt',
     locales: ['pt', 'en'],

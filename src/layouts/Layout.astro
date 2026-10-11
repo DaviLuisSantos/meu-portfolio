@@ -28,7 +28,9 @@ const pageTitle = title ? `${title} · Davi Luis` : 'Davi Luis · ' + t('hero.ro
     <meta name="description" content={description ?? t('meta.description')} />
     <meta property="og:title" content={pageTitle} />
     <meta property="og:description" content={description ?? t('meta.description')} />
-    <link rel="alternate" hreflang={otherLang(lang)} href={alternate} />
+    <link rel="canonical" href={new URL(Astro.url.pathname, Astro.site)} />
+    <link rel="alternate" hreflang={lang} href={new URL(Astro.url.pathname, Astro.site)} />
+    <link rel="alternate" hreflang={otherLang(lang)} href={new URL(alternate, Astro.site)} />
   </head>
   <body class="min-h-dvh">
     <Header lang={lang} alternate={alternate} />
