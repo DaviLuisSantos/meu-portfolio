@@ -1,36 +1,37 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Portfólio — Davi Luis
 
-## Getting Started
+Site pessoal feito com [Astro](https://astro.build) e Tailwind CSS 4. É totalmente estático, bilíngue (PT/EN) e não usa nenhum JavaScript no cliente.
 
-First, run the development server:
+## Rodando
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+npm run dev      # http://localhost:4321
+npm run build    # gera ./dist
+npm run check    # checagem de tipos
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Onde editar
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+| O quê | Arquivo |
+| --- | --- |
+| Textos da interface (PT/EN) | `src/i18n/ui.ts` |
+| Redes sociais e tecnologias | `src/data/profile.ts` |
+| Projetos | `src/content/projects/{pt,en}/*.md` |
+| Foto | `src/assets/profile.jpg` |
+| Currículos | `public/DAVI-LUIS-PT.pdf`, `public/DAVI-LUIS-EN.pdf` |
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Adicionando um projeto
 
-## Learn More
+Crie um arquivo com o **mesmo nome** em `pt/` e em `en/` (use `exemplo.md` como modelo). Campos do frontmatter:
 
-To learn more about Next.js, take a look at the following resources:
+- `title`, `summary`: obrigatórios
+- `tags`, `repo`, `demo`, `order`: opcionais
+- `cover`: imagem opcional (caminho relativo, ex.: `./capa.png`)
+- `draft: true`: o projeto aparece só no `npm run dev`
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Se o corpo do Markdown tiver conteúdo, o projeto ganha uma página própria em `/projetos/<nome>/` e `/en/projects/<nome>/`.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Deploy
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+A saída é estática (`dist/`), então funciona em Vercel, Netlify, Cloudflare Pages ou GitHub Pages. Antes de publicar, defina `site` em `astro.config.mjs` com o domínio final.

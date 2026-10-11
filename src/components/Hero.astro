@@ -1,0 +1,60 @@
+---
+import { Image } from 'astro:assets';
+import { Icon } from 'astro-icon/components';
+import profilePic from '../assets/profile.jpg';
+import { profile } from '../data/profile';
+import type { Lang } from '../i18n/ui';
+import { resumeUrl, useTranslations } from '../i18n/utils';
+
+const { lang } = Astro.props as { lang: Lang };
+const t = useTranslations(lang);
+---
+
+<section class="mx-auto max-w-5xl px-4 pt-16 pb-20 sm:px-6 sm:pt-24">
+  <div class="flex flex-col-reverse items-start gap-10 sm:flex-row sm:items-center sm:justify-between">
+    <div class="max-w-xl">
+      <p class="font-medium text-accent">{t('hero.role')}</p>
+      <h1 class="mt-2 text-5xl font-bold tracking-tight sm:text-6xl">{profile.name}</h1>
+      <p class="mt-5 text-lg text-pretty text-muted">{t('hero.tagline')}</p>
+
+      <div class="mt-8 flex flex-wrap items-center gap-3">
+        <a
+          href={resumeUrl(lang)}
+          download
+          class="inline-flex items-center gap-2 rounded-lg bg-accent px-5 py-2.5 font-medium text-accent-fg transition hover:opacity-90"
+        >
+          <Icon name="lucide:download" class="size-4" />
+          {t('hero.resume')}
+        </a>
+        <a
+          href="#projects"
+          class="inline-flex items-center gap-2 rounded-lg border border-border px-5 py-2.5 font-medium transition-colors hover:border-fg"
+        >
+          {t('hero.projects')}
+        </a>
+      </div>
+
+      <ul class="mt-8 flex gap-4">
+        {
+          profile.socials.map((s) => (
+            <li>
+              <a href={s.href} target="_blank" rel="noopener noreferrer" aria-label={s.label} class="text-muted transition-colors hover:text-fg">
+                <Icon name={s.icon} class="size-6" />
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+
+    <Image
+      src={profilePic}
+      alt={profile.name}
+      width={176}
+      height={176}
+      densities={[1, 2]}
+      loading="eager"
+      class="size-32 rounded-full object-cover ring-4 ring-border sm:size-44"
+    />
+  </div>
+</section>

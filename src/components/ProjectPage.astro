@@ -1,0 +1,61 @@
+---
+import { Image } from 'astro:assets';
+import { render } from 'astro:content';
+import { Icon } from 'astro-icon/components';
+import Layout from '../layouts/Layout.astro';
+import type { Lang } from '../i18n/ui';
+import { otherLang, paths, useTranslations } from '../i18n/utils';
+import { getProjects, projectSlug, type Project } from '../lib/projects';
+
+interface Props {
+  lang: Lang;
+  project: Project;
+}
+
+const { lang, project } = Astro.props;
+const { title, summary, tags, cover, repo, demo } = project.data;
+const t = useTranslations(lang);
+const { Content } = await render(project);
+
+// Se não houver tradução deste projeto, o seletor de idioma leva à home do outro idioma.
+const other = otherLang(lang);
+const slug = projectSlug(project);
+const translated = (await getProjects(other)).some((p) => projectSlug(p) === slug);
+const alternate = translated ? paths.project(other, slug) : paths.home(other);
+---
+
+<Layout lang={lang} alternate={alternate} title={title} description={summary}>
+  <article class="mx-auto max-w-3xl px-4 py-12 sm:px-6 sm:py-16">
+    <a href={`${paths.home(lang)}#projects`} class="inline-flex items-center gap-1 text-sm text-muted hover:text-fg">
+      <Icon name="lucide:arrow-left" class="size-4" />
+      {t('projects.back')}
+    </a>
+
+    <h1 class="mt-6 text-4xl font-bold tracking-tight">{title}</h1>
+    <p class="mt-4 text-lg text-muted">{summary}</p>
+
+    <div class="mt-6 flex flex-wrap items-center gap-4 text-sm">
+      {tags.map((tag) => <span class="rounded-md bg-surface px-2 py-0.5 text-muted">{tag}</span>)}
+      {
+        repo && (
+          <a href={repo} target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 font-medium hover:text-accent">
+            <Icon name="simple-icons:github" class="size-4" /> {t('projects.repo')}
+          </a>
+        )
+      }
+      {
+        demo && (
+          <a href={demo} target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 font-medium hover:text-accent">
+            <Icon name="lucide:arrow-up-right" class="size-4" /> {t('projects.demo')}
+          </a>
+        )
+      }
+    </div>
+
+    {cover && <Image src={cover} alt="" widths={[768, 1536]} sizes="(min-width: 768px) 768px, 100vw" class="mt-10 w-full rounded-xl border border-border" />}
+
+    <div class="prose mt-10 max-w-none prose-neutral dark:prose-invert prose-a:text-accent">
+      <Content />
+    </div>
+  </article>
+</Layout>

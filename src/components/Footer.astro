@@ -1,0 +1,14 @@
+---
+import type { Lang } from '../i18n/ui';
+import { useTranslations } from '../i18n/utils';
+
+const { lang } = Astro.props as { lang: Lang };
+const t = useTranslations(lang);
+---
+
+<footer class="border-t border-border">
+  <div class="mx-auto flex max-w-5xl flex-wrap justify-between gap-2 px-4 py-8 text-sm text-muted sm:px-6">
+    <span>© {new Date().getFullYear()} Davi Luis</span>
+    <span>{t('footer.built')}</span>
+  </div>
+</footer>
