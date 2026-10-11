@@ -13,7 +13,7 @@ interface Props {
 }
 
 const { lang, project } = Astro.props;
-const { title, summary, tags, cover, repo, demo } = project.data;
+const { title, summary, tags, cover, repo, demo, links } = project.data;
 const t = useTranslations(lang);
 const { Content } = await render(project);
 
@@ -49,6 +49,13 @@ const alternate = translated ? paths.project(other, slug) : paths.home(other);
             <Icon name="lucide:arrow-up-right" class="size-4" /> {t('projects.demo')}
           </a>
         )
+      }
+      {
+        links.map((link) => (
+          <a href={link.href} target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 hover:text-accent">
+            <Icon name="lucide:external-link" class="size-4" /> {link.label}
+          </a>
+        ))
       }
     </div>
 

@@ -23,10 +23,11 @@ npm run check    # checagem de tipos
 
 ### Adicionando um projeto
 
-Crie um arquivo com o **mesmo nome** em `pt/` e em `en/` (use `exemplo.md` como modelo). Campos do frontmatter:
+Crie um arquivo com o **mesmo nome** em `pt/` e em `en/` (use um dos existentes como modelo). Campos do frontmatter:
 
 - `title`, `summary`: obrigatórios
 - `tags`, `repo`, `demo`, `order`: opcionais
+- `links`: links extras, como lista de `label` + `href` (NuGet, front-end, releases...)
 - `cover`: imagem opcional (caminho relativo, ex.: `./capa.png`)
 - `draft: true`: o projeto aparece só no `npm run dev`
 

@@ -17,6 +17,8 @@ const projects = defineCollection({
       cover: image().optional(),
       repo: z.url().optional(),
       demo: z.url().optional(),
+      /** Links extras: pacote, repositório do front, releases... */
+      links: z.array(z.object({ label: z.string(), href: z.url() })).default([]),
       /** Menor aparece primeiro. */
       order: z.number().default(100),
       /** Rascunhos aparecem só em `npm run dev`. */
