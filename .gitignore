@@ -27,3 +27,7 @@ pnpm-debug.log*
 .claude/
 .vercel
 .env*
+
+# skills instaladas pela integração do Upstash
+.agents/
+skills-lock.json
