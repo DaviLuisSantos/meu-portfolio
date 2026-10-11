@@ -32,7 +32,7 @@ const label = 'block font-mono text-xs tracking-wide text-muted uppercase';
   <input type="hidden" name="lang" value={lang} />
   <!-- Honeypot contra robôs: fica fora da tela e fora da navegação por teclado. -->
   <div aria-hidden="true" class="absolute -left-[9999px]">
-    <label>Website <input type="text" name="website" tabindex="-1" autocomplete="off" /></label>
+    <label>Não preencha <input type="text" name="hp_check" tabindex="-1" autocomplete="off" data-1p-ignore data-lpignore="true" data-bwignore /></label>
   </div>
 
   <div>

@@ -26,10 +26,18 @@ export const POST: APIRoute = async ({ request, clientAddress, redirect }) => {
     viaFetch ? Response.json({ error }, { status }) : redirect(`${formPage}?erro=${error}`, 303);
 
   // Honeypot: campo invisível que só robôs preenchem.
-  if (form.get('website')) return fail(400, 'invalid');
+  if (form.get('hp_check')) {
+    console.warn('[curriculo] recusado pelo honeypot');
+    return fail(400, 'invalid');
+  }
 
   const parsed = leadSchema.safeParse(Object.fromEntries(form));
-  if (!parsed.success) return fail(400, 'invalid');
+  if (!parsed.success) {
+    // Só nomes de campos e códigos de erro; nunca os valores enviados.
+    const issues = parsed.error.issues.map((i) => `${i.path.join('.')}:${i.code}`);
+    console.warn('[curriculo] validação falhou', { issues, fields: [...form.keys()] });
+    return fail(400, 'invalid');
+  }
 
   const ip = request.headers.get('x-forwarded-for')?.split(',')[0]?.trim() || clientAddress;
   if (await isRateLimited(ip)) return fail(429, 'rate');
