@@ -6,6 +6,28 @@ import vercel from '@astrojs/vercel';
 
 const secret = () => envField.string({ context: 'server', access: 'secret', optional: true });
 
+/**
+ * O entrypoint do @astrojs/vercel (11.0.13) importa o módulo da integração, que traz um
+ * `import "rolldown"` usado só no build. Na função da Vercel o rolldown fica sem o binário
+ * nativo e toda rota de servidor quebra. Como a função nunca usa o rolldown, troca por um
+ * módulo vazio no build do servidor. Dá para remover quando o adaptador corrigir isso.
+ */
+const stubRolldownInServer = {
+  name: 'stub-rolldown-in-server',
+  enforce: /** @type {const} */ ('pre'),
+  apply: /** @type {const} */ ('build'),
+  /** @param {string} id @param {string | undefined} _importer @param {{ ssr?: boolean }} [options] */
+  resolveId(id, _importer, options) {
+    if (id === 'rolldown' && options?.ssr) return '\0empty-rolldown';
+  },
+  /** @param {string} id */
+  load(id) {
+    if (id === '\0empty-rolldown') {
+      return 'export function rolldown() { throw new Error("rolldown indisponível na função"); }';
+    }
+  },
+};
+
 // https://astro.build/config
 export default defineConfig({
   site: 'https://portifolio-daviluissantos-projects.vercel.app',
@@ -31,8 +53,20 @@ export default defineConfig({
       ADMIN_PASSWORD: secret(),
     },
   },
-  integrations: [icon()],
+  integrations: [
+    icon({
+      // Sem esta lista, páginas renderizadas no servidor carregam o pacote inteiro de ícones (~5 MB).
+      // Ao usar um ícone novo (ex.: em src/data/profile.ts), adicione-o aqui.
+      include: {
+        'simple-icons': [
+          'astro', 'docker', 'dotnet', 'github', 'instagram', 'linkedin', 'nextdotjs', 'nodedotjs',
+          'postgresql', 'react', 'sqlite', 'tailwindcss', 'typescript', 'youtube',
+        ],
+        lucide: ['arrow-left', 'arrow-up-right', 'file-text', 'x'],
+      },
+    }),
+  ],
   vite: {
-    plugins: [tailwindcss()],
+    plugins: [tailwindcss(), stubRolldownInServer],
   },
 });
