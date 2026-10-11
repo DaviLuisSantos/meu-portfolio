@@ -8,7 +8,9 @@ links:
 order: 1
 ---
 
-Sistema em produção em condomínios. Recebe as leituras de placa das câmeras, decide se o veículo pode entrar e responde ao display da câmera e à portaria na mesma hora. O código é privado; as versões compiladas são publicadas num repositório público de releases.
+Desenvolvido para a Segmix e em produção em condomínios. Recebe as leituras de placa das câmeras, decide se o veículo pode entrar e responde ao display da câmera e à portaria na mesma hora.
+
+O código é privado. As versões compiladas ficam num repositório público de releases, de onde a rotina de atualização automática de cada instalação baixa as novas versões.
 
 ## Integrações
 
@@ -27,7 +29,7 @@ Sistema em produção em condomínios. Recebe as leituras de placa das câmeras,
 - Monitora se cada câmera continua enviando eventos e reconfigura sozinha as que pararam.
 - Roda como serviço do Windows, com painéis web embutidos: registros, trajetos, saúde do sistema e gravações com buffer circular via ffmpeg.
 - **Entrega contínua:** o CI compila sem warnings e roda os testes; cada tag gera um binário self-contained.
-- Um atualizador em cada instalação baixa a versão nova numa janela de manutenção e faz rollback se a checagem de saúde falhar.
+- **Atualização automática:** um atualizador em cada instalação busca novas versões no repositório público de releases, instala numa janela de manutenção e faz rollback se a checagem de saúde falhar.
 
 ## Números
 

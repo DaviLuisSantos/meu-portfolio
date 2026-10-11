@@ -8,7 +8,9 @@ links:
 order: 1
 ---
 
-A system running in production at residential condominiums. It receives plate reads from the cameras, decides whether the vehicle may enter, and answers the camera display and the front desk immediately. The source code is private; compiled builds are published to a public releases repository.
+Built for Segmix and running in production at residential condominiums. It receives plate reads from the cameras, decides whether the vehicle may enter, and answers the camera display and the front desk immediately.
+
+The source code is private. Compiled builds are published to a public releases repository, which each installation's auto-update routine pulls new versions from.
 
 ## Integrations
 
@@ -27,7 +29,7 @@ A system running in production at residential condominiums. It receives plate re
 - Watches whether each camera is still sending events and reconfigures the ones that stopped on its own.
 - Runs as a Windows service with built-in web dashboards: access logs, vehicle routes, system health and recordings with a ffmpeg ring buffer.
 - **Continuous delivery:** CI builds with zero warnings and runs the tests; every tag produces a self-contained binary.
-- An updater on each installation downloads new versions during a maintenance window and rolls back if the health check fails.
+- **Auto-update:** an updater on each installation checks the public releases repository for new versions, installs them during a maintenance window and rolls back if the health check fails.
 
 ## Numbers
 
