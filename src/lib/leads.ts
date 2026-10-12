@@ -23,10 +23,13 @@ export type Lead = LeadInput & { at: string; country: string; userAgent: string 
 const LEADS_KEY = 'resume:leads';
 const RATE_LIMIT = 10; // downloads por IP por hora
 
+// O .env.local criado pela integração aponta para o banco de produção; em `astro dev` não grava nada.
 const redis =
-  KV_REST_API_URL && KV_REST_API_TOKEN ? new Redis({ url: KV_REST_API_URL, token: KV_REST_API_TOKEN }) : null;
+  !import.meta.env.DEV && KV_REST_API_URL && KV_REST_API_TOKEN
+    ? new Redis({ url: KV_REST_API_URL, token: KV_REST_API_TOKEN })
+    : null;
 
-if (!redis) console.warn('[leads] Redis não configurado: os downloads não serão salvos.');
+if (!redis) console.warn('[leads] Redis desligado (dev ou não configurado): os downloads não serão salvos.');
 
 export async function isRateLimited(ip: string) {
   if (!redis) return false;
