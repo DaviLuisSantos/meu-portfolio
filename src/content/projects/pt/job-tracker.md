@@ -21,6 +21,11 @@ Ferramenta pessoal para acompanhar o mercado de vagas na Austrália sem precisar
 - **Entende negação:** ignora um termo quando ele vem logo depois de "no", "not", "without" etc., e usa regex que funcionam com termos como C# e .NET.
 - **Revisão em duas etapas:** vagas com pontuação alta são reavaliadas com a descrição completa, e uma etapa opcional com o Gemini classifica requisitos que as regras não pegam.
 
+## Raio-X do mercado
+
+- Uma coleta diária registra, por área do Seek, quantas vagas estão abertas e quantas mencionam patrocínio de visto ou exigem cidadania, com a data em que cada vaga apareceu e sumiu.
+- No fim do mês, um relatório em Markdown consolida essas contagens e mostra como o mercado se moveu.
+
 ## Painel
 
 - Painel em Flask com status e anotações por vaga, explicação de cada pontuação, exportação para Excel e coletas em background com o log transmitido ao vivo.

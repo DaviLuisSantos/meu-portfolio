@@ -21,6 +21,11 @@ A personal tool to follow the Australian job market without running the same sea
 - **Negation-aware:** ignores a term when it comes right after "no", "not", "without" and similar, using regexes that work with terms like C# and .NET.
 - **Two-stage review:** high-scoring jobs are re-scored with the full description, and an optional Gemini step classifies requirements the rules miss.
 
+## Market snapshot
+
+- A daily run records, for each Seek job area, how many listings are open and how many mention visa sponsorship or require citizenship, with the dates each listing appeared and disappeared.
+- At the end of the month, a Markdown report aggregates those counts and shows how the market moved.
+
 ## Dashboard
 
 - A Flask dashboard with per-job status and notes, an explanation of each score, Excel export and background runs with a live log.
