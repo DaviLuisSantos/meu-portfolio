@@ -1,7 +1,7 @@
 ---
 title: CYD PC Dashboard
-summary: Painel touch de mesa no ESP32 "Cheap Yellow Display" com dados do PC, processos, rede, cotações, serviços e notificações, alimentado por um agente na rede local.
-highlight: v1.11 · 16 releases · atualização OTA · instalador web
+summary: Painel touch de mesa no ESP32 "Cheap Yellow Display" com dados do PC, mídia, atalhos, cotações, serviços e notificações, alimentado por um agente na rede local.
+highlight: v1.13 · 18 releases · atualização OTA · instalador web
 tags: [ESP32, C++, PlatformIO, TFT_eSPI, Python, pytest, GitHub Actions]
 cover: ../../../assets/projects/cyd-pc-dashboard.png
 repo: https://github.com/DaviLuisSantos/cyd-pc-dashboard
@@ -13,7 +13,8 @@ Um painel de 2,8" (uma placa de uns US$ 15) que fica ao lado do monitor e mostra
 
 ## O que ele mostra
 
-- **Sete abas:** relógio, PC (CPU, RAM, temperatura, discos e rede), processos, rede, cotações (moedas, cripto, ações, ETFs e índices, com gráfico de 24h), YouTube e serviços (se hosts e sites escolhidos estão no ar, com a latência).
+- **Nove abas:** relógio, PC (CPU, RAM, temperatura, discos e rede), processos, rede, cotações (moedas, cripto, ações, ETFs e índices, com gráfico de 24h), YouTube, serviços (se hosts e sites escolhidos estão no ar, com a latência), mídia e atalhos.
+- **Controla o PC:** a aba Mídia mostra o que está tocando (Spotify, navegador, players) com botões de anterior, pausa, próxima e volume. A aba Atalhos tem até 8 botões que bloqueiam o PC, desligam a tela, abrem apps ou rodam scripts.
 - **Notificações do PC:** um comando ou um `curl` faz aparecer um card no painel, útil para avisar quando um build, um teste ou um download termina.
 - **Alertas:** limites de CPU, RAM e disco colorem os indicadores e fazem a aba do PC piscar de qualquer outra aba.
 - **Usa o que a placa tem:** o LED RGB pisca em alertas e notificações, e o sensor de luz ajusta o brilho conforme o ambiente. À noite, a tela escurece ou apaga.
@@ -34,5 +35,5 @@ Um painel de 2,8" (uma placa de uns US$ 15) que fica ao lado do monitor e mostra
 
 - **Agente em Python** (só psutil e biblioteca padrão): cada métrica é coletada por uma thread própria e servida a partir de cache. O ESP32 só faz HTTP simples na rede local, sem chaves de API nem TLS no microcontrolador.
 - O agente roda como executável no Windows, sem precisar de Python, e tem inicialização automática no Windows, no Linux e no macOS, além de token de autenticação opcional.
-- **68 testes** com pytest rodando no CI em Windows, Linux e macOS.
+- **94 testes** com pytest rodando no CI em Windows, Linux e macOS.
 - **Releases automáticas:** o GitHub Actions compila a cada tag, gera um binário único e publica a release e o instalador.

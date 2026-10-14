@@ -28,4 +28,5 @@ A personal tool to follow the Australian job market without running the same sea
 
 ## Dashboard
 
+- **Unattended daily routine:** runs from the system scheduler, logs every run and signals through the exit code when something needs attention. Profile collection and the market snapshot run in isolation, so an error in one doesn't take down the other.
 - A Flask dashboard with per-job status and notes, an explanation of each score, Excel export and background runs with a live log.

@@ -28,4 +28,5 @@ Ferramenta pessoal para acompanhar o mercado de vagas na Austrália sem precisar
 
 ## Painel
 
+- **Rotina diária autônoma:** roda pelo agendador do sistema, grava log de cada execução e sinaliza pelo código de saída quando algo precisa de atenção. A coleta dos perfis e o raio-x rodam isolados, então um erro num não derruba o outro.
 - Painel em Flask com status e anotações por vaga, explicação de cada pontuação, exportação para Excel e coletas em background com o log transmitido ao vivo.
