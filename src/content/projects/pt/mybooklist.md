@@ -7,7 +7,7 @@ repo: https://github.com/DaviLuisSantos/MyBookList
 links:
   - label: Front-end
     href: https://github.com/DaviLuisSantos/mybooklist-frontend
-order: 8
+order: 9
 ---
 
 Projeto de estudo de 2025 para praticar Minimal APIs no .NET com um front em Next.js.

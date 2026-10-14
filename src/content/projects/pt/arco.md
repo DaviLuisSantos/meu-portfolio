@@ -8,7 +8,7 @@ demo: https://habit-system-front.vercel.app
 links:
   - label: Front-end
     href: https://github.com/DaviLuisSantos/habit-system-front
-order: 3
+order: 4
 ---
 
 Cada hábito tem um peso e uma frequência: diário, em dias específicos ou X vezes por semana. O check-in pode ser completo, parcial ou pulado, e o app calcula quanto da pontuação possível do dia você conseguiu. Está na versão 1.0.

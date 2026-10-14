@@ -4,7 +4,7 @@ summary: Coleta vagas do Seek (Austrália), pontua cada uma de 0 a 100 conforme 
 highlight: asyncio · fit score de 0 a 100
 tags: [Python, asyncio, httpx, Playwright, SQLite, Flask]
 repo: https://github.com/DaviLuisSantos/job-tracker
-order: 4
+order: 5
 ---
 
 Ferramenta pessoal para acompanhar o mercado de vagas na Austrália sem precisar fazer as mesmas buscas todos os dias.

@@ -8,7 +8,7 @@ demo: https://habit-system-front.vercel.app
 links:
   - label: Front-end
     href: https://github.com/DaviLuisSantos/habit-system-front
-order: 3
+order: 4
 ---
 
 Each habit has a weight and a frequency: daily, specific weekdays or X times a week. A check-in can be done, partial or skipped, and the app computes how much of the day's possible score you earned. It is at version 1.0.
