@@ -6,7 +6,7 @@ tags: [ESP32, C++, PlatformIO, TFT_eSPI, Python, pytest, GitHub Actions]
 cover: ../../../assets/projects/cyd-pc-dashboard.png
 repo: https://github.com/DaviLuisSantos/cyd-pc-dashboard
 demo: https://daviluissantos.github.io/cyd-pc-dashboard/
-order: 6
+order: 5
 ---
 
 Um painel de 2,8" (uma placa de uns US$ 15) que fica ao lado do monitor e mostra, de relance, o que normalmente exigiria trocar de janela. As capturas acima foram lidas direto do framebuffer do display.

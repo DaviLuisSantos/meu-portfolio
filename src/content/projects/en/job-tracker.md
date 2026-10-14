@@ -4,7 +4,7 @@ summary: Collects job listings from Seek (Australia), scores each one from 0 to 
 highlight: asyncio · 0–100 fit score
 tags: [Python, asyncio, httpx, Playwright, SQLite, Flask]
 repo: https://github.com/DaviLuisSantos/job-tracker
-order: 5
+order: 6
 ---
 
 A personal tool to follow the Australian job market without running the same searches every day.
