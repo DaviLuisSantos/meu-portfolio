@@ -1,4 +1,5 @@
 ---
+import FeaturedProject from './FeaturedProject.astro';
 import ProjectRow from './ProjectRow.astro';
 import SectionLabel from './SectionLabel.astro';
 import type { Lang } from '../i18n/ui';
@@ -8,6 +9,11 @@ import { getProjects } from '../lib/projects';
 const { lang } = Astro.props as { lang: Lang };
 const t = useTranslations(lang);
 const projects = await getProjects(lang);
+
+// Os primeiros pela ordem (campo `order`) ganham destaque; o 1º ocupa a largura toda.
+const FEATURED = 3;
+const featured = projects.slice(0, FEATURED);
+const others = projects.slice(FEATURED);
 ---
 
 <section id="projects" class="mx-auto max-w-6xl px-4 pt-24 pb-16 sm:px-6 sm:pt-32">
@@ -16,14 +22,26 @@ const projects = await getProjects(lang);
     <h2 class="mt-4 font-serif text-5xl sm:text-6xl">{t('projects.heading')}</h2>
   </div>
   {
-    projects.length > 0 ? (
-      <div class="mt-12 border-b border-border">
-        {projects.map((project, index) => (
-          <ProjectRow lang={lang} project={project} index={index} />
-        ))}
-      </div>
-    ) : (
+    projects.length === 0 ? (
       <p class="mt-8 text-muted">{t('projects.empty')}</p>
+    ) : (
+      <>
+        <div class="mt-12 grid gap-4 lg:grid-cols-2">
+          {featured.map((project, index) => (
+            <FeaturedProject lang={lang} project={project} index={index} wide={index === 0} />
+          ))}
+        </div>
+        {others.length > 0 && (
+          <>
+            <p class="reveal mt-20 font-mono text-xs tracking-widest text-muted uppercase">// {t('projects.more')}</p>
+            <div class="mt-4 border-b border-border">
+              {others.map((project, index) => (
+                <ProjectRow lang={lang} project={project} index={index + FEATURED} />
+              ))}
+            </div>
+          </>
+        )}
+      </>
     )
   }
 </section>
