@@ -59,8 +59,9 @@ export default defineConfig({
       // Ao usar um ícone novo (ex.: em src/data/profile.ts), adicione-o aqui.
       include: {
         'simple-icons': [
-          'astro', 'docker', 'dotnet', 'github', 'instagram', 'linkedin', 'nextdotjs', 'nodedotjs',
-          'postgresql', 'react', 'sqlite', 'tailwindcss', 'typescript', 'youtube',
+          'blazor', 'docker', 'dotnet', 'github', 'githubactions', 'instagram', 'linkedin', 'microsoftazure',
+          'nextdotjs', 'nodedotjs', 'onnx', 'opencv', 'postgresql', 'python', 'react', 'sqlite', 'typescript',
+          'youtube',
         ],
         lucide: ['arrow-left', 'arrow-up-right', 'file-text', 'x'],
       },

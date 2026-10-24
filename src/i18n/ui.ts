@@ -9,7 +9,7 @@ export const defaultLang: Lang = 'pt';
 
 export const ui = {
   pt: {
-    'meta.description': 'Portfólio de Davi Luis, desenvolvedor full stack: .NET, Node.js e React em sistemas que rodam em produção.',
+    'meta.description': 'Portfólio de Davi Luis, desenvolvedor full stack: .NET, TypeScript e Python em sistemas que rodam em produção.',
     'nav.projects': 'projetos',
     'nav.about': 'sobre',
     'nav.contact': 'contato',
@@ -18,7 +18,7 @@ export const ui = {
     'hero.title.1': 'Código é uma',
     'hero.title.2': 'forma de pensar.',
     'hero.tagline':
-      'Construo sistemas que rodam no mundo real: APIs, integrações com hardware e aplicações web com .NET, Node.js e React.',
+      'Construo sistemas que rodam no mundo real: controle de acesso, integrações com hardware, visão computacional e aplicações web com .NET, TypeScript e Python.',
     'hero.resume': 'Baixar currículo',
     'hero.projects': 'Ver projetos',
     'stack.title': 'stack',
@@ -35,9 +35,9 @@ export const ui = {
     'about.lead':
       'Escrevo software do jeito que tento viver: com clareza, sem atalhos e pensando em quem vem depois.',
     'about.p1':
-      'Sou desenvolvedor full stack e gosto de transformar problemas reais em software simples de usar e de manter. Boa parte do meu trabalho acontece longe do navegador: câmeras, controladoras de acesso, sistemas legados e servidores que não podem parar.',
+      'Sou desenvolvedor full stack do Rio de Janeiro e gosto de transformar problemas reais em software simples de usar e de manter. Boa parte do meu trabalho acontece longe do navegador: câmeras, controladoras de acesso, sistemas legados e servidores que não podem parar.',
     'about.p2':
-      'Sou formado em Análise e Desenvolvimento de Sistemas e curso Ciência da Computação.',
+      'Sou formado em Análise e Desenvolvimento de Sistemas, curso Ciência da Computação e tenho a certificação Microsoft Azure Fundamentals (AZ-900).',
     'channel.title': 'canal',
     'channel.heading': 'Também falo de programação no YouTube.',
     'channel.text': 'No Davi Dev eu mostro projetos, ferramentas e o que venho aprendendo construindo software.',
@@ -67,7 +67,7 @@ export const ui = {
     'notfound.back': 'Voltar ao início',
   },
   en: {
-    'meta.description': 'Portfolio of Davi Luis, full stack developer: .NET, Node.js and React in systems that run in production.',
+    'meta.description': 'Portfolio of Davi Luis, full stack developer: .NET, TypeScript and Python in systems that run in production.',
     'nav.projects': 'projects',
     'nav.about': 'about',
     'nav.contact': 'contact',
@@ -76,7 +76,7 @@ export const ui = {
     'hero.title.1': 'Code is a',
     'hero.title.2': 'way of thinking.',
     'hero.tagline':
-      'I build systems that run in the real world: APIs, hardware integrations and web applications with .NET, Node.js and React.',
+      'I build systems that run in the real world: access control, hardware integrations, computer vision and web applications with .NET, TypeScript and Python.',
     'hero.resume': 'Download resume',
     'hero.projects': 'See projects',
     'stack.title': 'stack',
@@ -92,8 +92,8 @@ export const ui = {
     'about.title': 'about',
     'about.lead': 'I write software the way I try to live: with clarity, no shortcuts, and thinking about whoever comes next.',
     'about.p1':
-      'I am a full stack developer who enjoys turning real problems into software that is simple to use and to maintain. Much of my work happens far from the browser: cameras, access controllers, legacy systems and servers that cannot go down.',
-    'about.p2': 'I hold a degree in Systems Analysis and Development and I am studying Computer Science.',
+      'I am a full stack developer from Rio de Janeiro who enjoys turning real problems into software that is simple to use and to maintain. Much of my work happens far from the browser: cameras, access controllers, legacy systems and servers that cannot go down.',
+    'about.p2': 'I hold a degree in Systems Analysis and Development, I am studying Computer Science and I am Microsoft Azure Fundamentals (AZ-900) certified.',
     'channel.title': 'channel',
     'channel.heading': 'I also talk about programming on YouTube.',
     'channel.text': 'On Davi Dev I show projects, tools and what I have been learning while building software (in Portuguese).',

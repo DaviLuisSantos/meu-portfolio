@@ -1,7 +1,7 @@
 ---
 title: Servidor LPR para controle de acesso veicular
 summary: Servidor .NET on-premise que integra câmeras de leitura de placas de vários fabricantes a um sistema de controle de acesso e decide a liberação em tempo real.
-highlight: em produção · 1.300+ testes · 80+ releases
+highlight: em produção · 1.500+ testes · 95+ releases
 tags: [.NET 10, ASP.NET Core, Firebird, SQLite, MediatR, GitHub Actions]
 links:
   - label: Releases
@@ -22,17 +22,19 @@ O código é privado. As versões compiladas ficam num repositório público de 
 
 - Verifica cadastro, rota por câmera, limite de vagas por unidade e antipassback, e elimina leituras duplicadas.
 - Na dúvida, nega o acesso (fail-closed).
-- O banco do sistema legado (Firebird) é a fonte de verdade, com cache em memória. Um SQLite local acelera as consultas.
+- **Dois modos de operação:** no padrão, o banco do sistema legado (Firebird) é a fonte de verdade, com cache em memória. No modo novo, o servidor funciona sem o sistema legado e decide pelos direitos de acesso vindos da nova plataforma da empresa, com cada passagem guardada em disco até ser entregue. Um SQLite local acelera as consultas nos dois.
+- **Contrato comum entre sistemas:** tipos e regras compartilhados vêm de pacotes NuGet internos, nunca copiados à mão, e um teste de arquitetura garante isso.
+- Placas não cadastradas passam por uma correção pela posição dos caracteres (I/1, O/0), e uma leitura reenviada pela câmera nunca abre a cancela.
 - A lista de placas autorizadas também fica sincronizada em cada câmera, então a portaria continua funcionando se o servidor cair.
 
 ## Operação
 
 - Monitora se cada câmera continua enviando eventos e reconfigura sozinha as que pararam.
 - Roda como serviço do Windows, com painéis web embutidos: registros, trajetos, saúde do sistema e gravações com buffer circular via ffmpeg.
-- **Entrega contínua:** o CI compila sem warnings e roda os testes; cada tag gera um binário self-contained.
-- **Atualização automática:** um atualizador em cada instalação busca novas versões no repositório público de releases, instala numa janela de manutenção e faz rollback se a checagem de saúde falhar.
+- **Entrega contínua:** a cada versão, o CI compila sem warnings, roda os testes e gera o binário self-contained e o instalador.
+- **Atualização automática:** um atualizador em cada instalação busca novas versões no repositório público de releases (com espelho em storage de objetos), instala numa janela de manutenção e faz rollback se a checagem de saúde falhar.
 
 ## Números
 
-- Mais de 1.300 testes automatizados, incluindo testes de contrato contra um Firebird real em Docker.
-- Mais de 80 releases publicadas com versionamento semântico.
+- Mais de 1.500 testes automatizados, incluindo testes de contrato contra um Firebird real em Docker.
+- Mais de 95 releases publicadas com versionamento semântico.

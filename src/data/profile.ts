@@ -9,14 +9,18 @@ export const profile = {
   /** Ícones: https://icon-sets.iconify.design/simple-icons/ */
   stack: [
     { label: '.NET / C#', icon: 'simple-icons:dotnet' },
-    { label: 'Node.js', icon: 'simple-icons:nodedotjs' },
     { label: 'TypeScript', icon: 'simple-icons:typescript' },
     { label: 'React', icon: 'simple-icons:react' },
     { label: 'Next.js', icon: 'simple-icons:nextdotjs' },
-    { label: 'Astro', icon: 'simple-icons:astro' },
-    { label: 'Tailwind CSS', icon: 'simple-icons:tailwindcss' },
+    { label: 'Blazor', icon: 'simple-icons:blazor' },
+    { label: 'Python', icon: 'simple-icons:python' },
+    { label: 'Node.js', icon: 'simple-icons:nodedotjs' },
     { label: 'PostgreSQL', icon: 'simple-icons:postgresql' },
     { label: 'SQLite', icon: 'simple-icons:sqlite' },
     { label: 'Docker', icon: 'simple-icons:docker' },
+    { label: 'Azure', icon: 'simple-icons:microsoftazure' },
+    { label: 'GitHub Actions', icon: 'simple-icons:githubactions' },
+    { label: 'OpenCV', icon: 'simple-icons:opencv' },
+    { label: 'ONNX Runtime', icon: 'simple-icons:onnx' },
   ],
 };

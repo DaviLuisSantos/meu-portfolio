@@ -1,30 +1,28 @@
 ---
-title: Arco — rastreador de hábitos
-summary: App web (PWA) para registrar hábitos diários com pesos e check-ins parciais, gerando uma pontuação diária e semanal de consistência.
-highlight: v1.0 · no ar · PWA · deploy contínuo no Azure
-tags: [.NET 9, EF Core, MediatR, Next.js 16, TanStack Query, Tailwind CSS 4]
-repo: https://github.com/DaviLuisSantos/HabitSystem
-demo: https://habit-system-front.vercel.app
+title: Arco — hábitos com progresso
+summary: PWA de hábitos com níveis, objetivos em ciclos de 6 semanas, XP e conquistas. Funciona offline e expõe API REST e servidor MCP.
+highlight: .NET 10 · React 19 PWA · servidor MCP · 83 testes
+tags: [.NET 10, EF Core, SQLite, React 19, TypeScript, TanStack Query, Tailwind CSS 4, Azure]
 links:
-  - label: Front-end
-    href: https://github.com/DaviLuisSantos/habit-system-front
+  - label: Versão anterior (código)
+    href: https://github.com/DaviLuisSantos/HabitSystem
 order: 4
 ---
 
-Cada hábito tem um peso e uma frequência: diário, em dias específicos ou X vezes por semana. O check-in pode ser completo, parcial ou pulado, e o app calcula quanto da pontuação possível do dia você conseguiu. Está na versão 1.0.
+A segunda geração do Arco. A primeira (um app de check-ins com pontuação, em .NET 9 e Next.js, de código aberto) virou a base de uma ideia maior: hábitos que evoluem. O código da nova versão é privado e ela está em uso pessoal, rumo a virar multiusuário.
 
-## Back-end
+## O que ele faz
 
-- **Vertical slices:** cada caso de uso fica num único arquivo, com comando, handler do MediatR e endpoint Minimal API.
-- **Pontuação ponderada,** com cache por dia. Só contam os hábitos previstos para a data, respeitando quando cada um foi criado ou arquivado, e o "hoje" segue o fuso de cada usuário.
-- **Sessões por dispositivo:** refresh tokens guardados com hash e rotacionados a cada uso, com logout e revogação de todas as sessões ao trocar ou redefinir a senha.
-- **E-mail de verdade** via Resend para verificação de conta e recuperação de senha.
-- **Robustez:** validação de entrada, erros padronizados com código, rate limiting em todas as rotas de autenticação, datas sempre em UTC e health check do banco.
-- Deploy contínuo no Azure via GitHub Actions.
+- **Hábitos com níveis:** cada nível tem uma dose e uma versão mínima, e a escada pode ser planejada com antecedência. O app sugere subir ou descer um degrau conforme a consistência, mas a decisão é sempre de quem usa.
+- **Ciclos e objetivos:** ciclos de 6 semanas (configuráveis de 1 a 12), com objetivos numéricos ou por marcos e encerramento com revisão guiada.
+- **Progresso:** check-in feito, mínimo ou não fiz, sequência que perdoa uma falha isolada por semana, XP, 16 conquistas e estatísticas das últimas 12 semanas.
 
-## Front-end
+## Engenharia
 
-- Next.js 16 com React 19, TanStack Query e formulários com React Hook Form + Zod.
-- **Sessão resiliente:** o token é renovado sozinho, com trava entre abas para não renovar duas vezes, login e logout sincronizados entre abas, e a sessão não cai em falhas temporárias de rede.
-- **PWA:** instalável, com cache versionado e página offline.
-- Gráficos de evolução, calendário para editar dias passados, restauração de hábitos arquivados e cabeçalhos de segurança (CSP).
+- **Uma API, um processo:** .NET 10 com Minimal APIs organizadas por funcionalidade. A API serve o front em React 19 + Vite do mesmo processo.
+- **XP como livro-razão:** cada ganho de XP é gravado na mesma transação da ação que o gerou. Desfazer um ciclo ou objetivo desfaz também o XP e as conquistas.
+- **Servidor MCP** com 17 ferramentas, para assistentes de IA lerem e registrarem hábitos. As ferramentas passam pela própria API REST, nunca direto no banco.
+- **Offline de verdade:** o cache fica no IndexedDB, e os check-ins feitos sem conexão entram numa fila e são reenviados na ordem quando a rede volta.
+- **Web Push implementado do zero** (VAPID e criptografia aes128gcm, sem biblioteca), com lembretes disparados por um serviço em segundo plano.
+- **Chaves de API** de 256 bits guardadas só como hash, e backup diário do SQLite mantido por 14 dias.
+- **Deploy no Azure** pelo GitHub Actions com login OIDC, sem segredo de longa duração no repositório. 83 testes de domínio e integração.

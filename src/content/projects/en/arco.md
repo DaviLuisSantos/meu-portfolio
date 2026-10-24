@@ -1,30 +1,28 @@
 ---
-title: Arco — habit tracker
-summary: Web app (PWA) to track daily habits with weights and partial check-ins, producing a daily and weekly consistency score.
-highlight: v1.0 · live · PWA · continuous deploy to Azure
-tags: [.NET 9, EF Core, MediatR, Next.js 16, TanStack Query, Tailwind CSS 4]
-repo: https://github.com/DaviLuisSantos/HabitSystem
-demo: https://habit-system-front.vercel.app
+title: Arco — habits with progression
+summary: Habit PWA with leveled habits, goals in 6-week cycles, XP and achievements. Works offline and exposes a REST API and an MCP server.
+highlight: .NET 10 · React 19 PWA · MCP server · 83 tests
+tags: [.NET 10, EF Core, SQLite, React 19, TypeScript, TanStack Query, Tailwind CSS 4, Azure]
 links:
-  - label: Front-end
-    href: https://github.com/DaviLuisSantos/habit-system-front
+  - label: Previous version (code)
+    href: https://github.com/DaviLuisSantos/HabitSystem
 order: 4
 ---
 
-Each habit has a weight and a frequency: daily, specific weekdays or X times a week. A check-in can be done, partial or skipped, and the app computes how much of the day's possible score you earned. It is at version 1.0.
+The second generation of Arco. The first one (an open source check-in app with scoring, built with .NET 9 and Next.js) became the base for a bigger idea: habits that grow. The new version's code is private and it is in personal use, on its way to becoming multi-user.
 
-## Back end
+## What it does
 
-- **Vertical slices:** each use case lives in a single file with its command, MediatR handler and Minimal API endpoint.
-- **Weighted scoring,** cached per day. Only habits expected on that date count, respecting when each one was created or archived, and "today" follows each user's timezone.
-- **Per-device sessions:** refresh tokens stored hashed and rotated on every use, with logout and revocation of every session when the password is changed or reset.
-- **Real email** via Resend for account verification and password recovery.
-- **Robustness:** input validation, standardized errors with codes, rate limiting on every authentication route, all dates in UTC and a database health check.
-- Continuous deployment to Azure via GitHub Actions.
+- **Leveled habits:** each level has a dose and a minimum version, and the ladder can be planned ahead. The app suggests moving up or down a step based on consistency, but the user always decides.
+- **Cycles and goals:** 6-week cycles (configurable from 1 to 12), with numeric or milestone goals and a guided review at the end.
+- **Progress:** done, minimum or skipped check-ins, a streak that forgives one isolated miss per week, XP, 16 achievements and stats for the last 12 weeks.
 
-## Front end
+## Engineering
 
-- Next.js 16 with React 19, TanStack Query and forms built with React Hook Form + Zod.
-- **Resilient session:** the token refreshes on its own, with a cross-tab lock so it never refreshes twice, login and logout synced across tabs, and the session survives temporary network failures.
-- **PWA:** installable, with a versioned cache and an offline page.
-- Progress charts, a calendar to edit past days, restoring archived habits and security headers (CSP).
+- **One API, one process:** .NET 10 with Minimal APIs organized by feature. The API serves the React 19 + Vite front end from the same process.
+- **XP as a ledger:** every XP gain is written in the same transaction as the action that earned it. Undoing a cycle or goal also undoes its XP and achievements.
+- **MCP server** with 17 tools, so AI assistants can read and log habits. The tools go through the app's own REST API, never straight to the database.
+- **Real offline support:** the cache lives in IndexedDB, and check-ins made offline go into a queue and are replayed in order when the network comes back.
+- **Web Push built from scratch** (VAPID and aes128gcm encryption, no library), with reminders sent by a background service.
+- **API keys** of 256 bits stored only as hashes, and a daily SQLite backup kept for 14 days.
+- **Azure deploy** through GitHub Actions with OIDC login, no long-lived secret in the repository. 83 domain and integration tests.
