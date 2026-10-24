@@ -4,7 +4,7 @@ summary: App web local para organizar, editar e gravar roteiros de vídeo em Mar
 highlight: sem framework · teleprompter
 tags: [Node.js, Express, JavaScript, HTML, CSS]
 repo: https://github.com/DaviLuisSantos/RoteiroManager
-order: 9
+order: 10
 ---
 
 Feito para o meu fluxo de gravação de vídeos: os roteiros ficam em arquivos Markdown, e o app transforma cada um em algo fácil de ler durante a gravação.

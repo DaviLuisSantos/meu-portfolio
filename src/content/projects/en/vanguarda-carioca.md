@@ -4,7 +4,7 @@ summary: Landing page for Rio de Janeiro streetwear and lifestyle brand Vanguard
 highlight: live · structured-data SEO
 tags: [Next.js 16, React 19, TypeScript, Tailwind CSS 4, Firebase, Vercel]
 demo: https://www.vanguardacarioca.com.br
-order: 8
+order: 9
 ---
 
 A single-page site with the brand manifesto and email capture for the waitlist.
