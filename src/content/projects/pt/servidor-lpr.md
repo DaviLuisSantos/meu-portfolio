@@ -1,7 +1,7 @@
 ---
 title: Servidor LPR para controle de acesso veicular
 summary: Servidor .NET on-premise que integra câmeras de leitura de placas de vários fabricantes a um sistema de controle de acesso e decide a liberação em tempo real.
-highlight: em produção em 20+ condomínios · 2.000+ testes · 103 versões
+highlight: em produção em 20+ condomínios · 2.000+ testes · 112 versões
 tags: [.NET 10, ASP.NET Core, Firebird, SQLite, MediatR, GitHub Actions]
 links:
   - label: Releases
@@ -9,7 +9,7 @@ links:
 order: 2
 ---
 
-Desenvolvido para a Segmix, com autoria principal minha, e em produção em mais de 20 condomínios. Recebe as leituras de placa das câmeras, decide se o veículo pode entrar e responde ao display da câmera e à portaria na mesma hora.
+Desenvolvido para a Segmix, com autoria principal minha (619 dos 623 commits), e em produção em mais de 20 condomínios. Recebe as leituras de placa das câmeras, decide se o veículo pode entrar e responde ao display da câmera e à portaria na mesma hora.
 
 O código é privado. As versões compiladas ficam num repositório público de releases, de onde a rotina de atualização automática de cada instalação baixa as novas versões.
 
@@ -37,4 +37,4 @@ O código é privado. As versões compiladas ficam num repositório público de 
 ## Números
 
 - Mais de 2.000 testes automatizados, incluindo testes de contrato contra um Firebird real em Docker.
-- 103 versões em 10 meses, publicadas com versionamento semântico.
+- 112 versões em 10 meses, publicadas com versionamento semântico.

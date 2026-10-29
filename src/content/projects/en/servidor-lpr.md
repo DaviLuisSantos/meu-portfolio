@@ -1,7 +1,7 @@
 ---
 title: LPR vehicle access-control server
 summary: On-premise .NET server that connects license plate recognition cameras from several vendors to an access-control system and decides gate access in real time.
-highlight: running at 20+ sites · 2,000+ tests · 103 releases
+highlight: running at 20+ sites · 2,000+ tests · 112 releases
 tags: [.NET 10, ASP.NET Core, Firebird, SQLite, MediatR, GitHub Actions]
 links:
   - label: Releases
@@ -9,7 +9,7 @@ links:
 order: 2
 ---
 
-Built for Segmix, with me as the main author, and running at 20+ residential sites. It receives plate reads from the cameras, decides whether the vehicle may enter, and answers the camera display and the front desk immediately.
+Built for Segmix, with me as the main author (619 of 623 commits), and running at 20+ residential sites. It receives plate reads from the cameras, decides whether the vehicle may enter, and answers the camera display and the front desk immediately.
 
 The source code is private. Compiled builds are published to a public releases repository, which each installation's auto-update routine pulls new versions from.
 
@@ -37,4 +37,4 @@ The source code is private. Compiled builds are published to a public releases r
 ## Numbers
 
 - 2,000+ automated tests, including contract tests against a real Firebird instance in Docker.
-- 103 releases in 10 months, published with semantic versioning.
+- 112 releases in 10 months, published with semantic versioning.

@@ -1,9 +1,9 @@
 ---
-title: Servidor de Câmeras
+title: Ocelo — hub de câmeras IP
 summary: Hub de câmeras IP multimarca em .NET 10, com vídeo ao vivo em WebRTC/HLS, gravação contínua, retenção inteligente e API com webhooks para outros sistemas.
-highlight: em desenvolvimento · WebRTC ao vivo · 384 testes
+highlight: em teste com câmeras reais · 203 commits e 399 testes em 16 dias · −68% de disco
 tags: [.NET 10, ASP.NET Core, React, TypeScript, SQLite, MediaMTX, WebRTC, ONVIF]
-order: 7
+order: 6
 ---
 
 Um VMS leve: conecta câmeras IP de várias marcas, mostra tudo ao vivo, grava continuamente e entrega vídeo para outros sistemas por API. Está em pré-produção, testado com câmeras reais de três marcas. O código é privado.
@@ -23,4 +23,4 @@ Um VMS leve: conecta câmeras IP de várias marcas, mostra tudo ao vivo, grava c
 
 - Monitores de gravação parada, motor de mídia fora do ar, relógio das câmeras e disco. A retenção pausa se o relógio parecer errado, para não apagar gravação por engano.
 - Exportação de vídeo com manifesto assinado e trilha de auditoria encadeada, login por pessoa e backup cifrado.
-- Roda como serviço do Windows, com instalador e atualização com volta automática. São 384 testes, incluindo testes de arquitetura e respostas reais de câmeras usadas como fixtures.
+- Roda como serviço do Windows, com instalador e atualização com volta automática. São 399 testes, incluindo testes de arquitetura e respostas reais de câmeras usadas como fixtures.

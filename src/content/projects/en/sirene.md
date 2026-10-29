@@ -3,7 +3,7 @@ title: Sirene — real-time alerts
 summary: 24/7 monitor that detects slot openings on a government portal within seconds and alerts subscribers on Telegram. Live, with a waitlist.
 highlight: live · waitlist · Telegram bot · Pix payments
 tags: [Python, asyncio, Playwright, SQLite, Telegram Bot API, Cloudflare, Mercado Pago]
-order: 6
+order: 7
 ---
 
 

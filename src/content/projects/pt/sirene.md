@@ -3,7 +3,7 @@ title: Sirene — alertas em tempo real
 summary: Monitor 24/7 que detecta em segundos a abertura de vagas num portal governamental e avisa assinantes pelo Telegram. No ar, em lista de espera.
 highlight: no ar · lista de espera · bot no Telegram · Pix
 tags: [Python, asyncio, Playwright, SQLite, Telegram Bot API, Cloudflare, Mercado Pago]
-order: 6
+order: 7
 ---
 
 

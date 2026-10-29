@@ -1,9 +1,9 @@
 ---
-title: Camera Server
+title: Ocelo — IP camera hub
 summary: Multi-brand IP camera hub in .NET 10, with WebRTC/HLS live view, continuous recording, smart retention and an API with webhooks for other systems.
-highlight: in development · WebRTC live view · 384 tests
+highlight: in testing with real cameras · 203 commits and 399 tests in 16 days · −68% disk
 tags: [.NET 10, ASP.NET Core, React, TypeScript, SQLite, MediaMTX, WebRTC, ONVIF]
-order: 7
+order: 6
 ---
 
 A lightweight VMS: it connects IP cameras from several brands, shows everything live, records continuously and serves video to other systems through an API. It is in pre-production, tested with real cameras from three brands. The code is private.
@@ -23,4 +23,4 @@ A lightweight VMS: it connects IP cameras from several brands, shows everything 
 
 - Monitors for stalled recording, the media engine going down, camera clocks and disk. Retention pauses if a clock looks wrong, so footage is never deleted by mistake.
 - Video export with a signed manifest and a chained audit trail, per-person login and encrypted backups.
-- Runs as a Windows service, with an installer and updates that roll back automatically. 384 tests, including architecture tests and real camera responses used as fixtures.
+- Runs as a Windows service, with an installer and updates that roll back automatically. 399 tests, including architecture tests and real camera responses used as fixtures.
