@@ -1,23 +1,17 @@
 ---
-title: Sirene WHV
-summary: SaaS that alerts Brazilians on Telegram, within seconds, when Australia's Working Holiday visa (subclass 462) spots open. Live, with a waitlist.
+title: Sirene — real-time alerts
+summary: 24/7 monitor that detects slot openings on a government portal within seconds and alerts subscribers on Telegram. Live, with a waitlist.
 highlight: live · waitlist · Telegram bot · Pix payments
-tags: [Python, asyncio, SQLite, Telegram Bot API, Cloudflare, Mercado Pago]
-cover: ../../../assets/projects/sirene-whv.png
-demo: https://sirenewhv.com.br
-links:
-  - label: Live status
-    href: https://status.sirenewhv.com.br
-  - label: Telegram channel
-    href: https://t.me/sirenewhv
-order: 3
+tags: [Python, asyncio, Playwright, SQLite, Telegram Bot API, Cloudflare, Mercado Pago]
+order: 6
 ---
 
-In 2025, Working Holiday spots for Brazilians sold out in about 3 minutes. Sirene started as a monitor I built for myself and became a product: as soon as spots open, subscribers get the alert on Telegram. The service is live with a waitlist, and subscriptions open soon. (The site is in Portuguese.)
+
+On a government portal where slots sell out within minutes, whoever gets there first wins. Sirene started as a monitor I built for myself and became a product: as soon as slots open, subscribers get the alert on Telegram. The service is live with a waitlist, and subscriptions open soon.
 
 ## Architecture
 
-- **Separate from the monitor:** a standalone service reads the monitor's state every 2 seconds and turns each change into an event (spots opened, spots closed, maintenance…). Not a line of the monitor changed, and the service makes no extra requests to the government website.
+- **Separate from the monitor:** a standalone service reads the monitor's state every 2 seconds and turns each change into an event (slots opened, slots closed, maintenance…). Not a line of the monitor changed, and the service makes no extra requests to the government website.
 - **Nothing gets lost:** each event is written to a SQLite outbox before delivery. If Telegram fails, delivery resumes later.
 - **Pure, tested logic:** deciding which events to emit doesn't touch the network, the clock or the disk. There are 49 tests, plus an end-to-end drill with a test bot and channel.
 - **Never confuses subscribers:** monitor health problems go only to me. Subscribers never get "unreachable" disguised as "closed".

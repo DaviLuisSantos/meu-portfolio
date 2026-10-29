@@ -1,19 +1,13 @@
 ---
-title: Sirene WHV
-summary: SaaS que avisa pelo Telegram, em segundos, quando abrem as vagas do visto Working Holiday (subclasse 462) para brasileiros. No ar, em lista de espera.
+title: Sirene — alertas em tempo real
+summary: Monitor 24/7 que detecta em segundos a abertura de vagas num portal governamental e avisa assinantes pelo Telegram. No ar, em lista de espera.
 highlight: no ar · lista de espera · bot no Telegram · Pix
-tags: [Python, asyncio, SQLite, Telegram Bot API, Cloudflare, Mercado Pago]
-cover: ../../../assets/projects/sirene-whv.png
-demo: https://sirenewhv.com.br
-links:
-  - label: Status ao vivo
-    href: https://status.sirenewhv.com.br
-  - label: Canal no Telegram
-    href: https://t.me/sirenewhv
-order: 3
+tags: [Python, asyncio, Playwright, SQLite, Telegram Bot API, Cloudflare, Mercado Pago]
+order: 6
 ---
 
-Em 2025, as vagas do Working Holiday para brasileiros esgotaram em cerca de 3 minutos. A Sirene nasceu de um monitor que fiz para mim e virou produto: assim que as vagas abrem, assinantes recebem o alerta no Telegram. O serviço está no ar em lista de espera, e as assinaturas abrem em breve.
+
+Num portal governamental em que as vagas esgotam em poucos minutos, quem chega primeiro leva. A Sirene nasceu de um monitor que fiz para mim e virou produto: assim que as vagas abrem, assinantes recebem o alerta no Telegram. O serviço está no ar em lista de espera, e as assinaturas abrem em breve.
 
 ## Arquitetura
 

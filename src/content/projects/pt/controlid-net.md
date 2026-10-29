@@ -7,7 +7,7 @@ repo: https://github.com/DaviLuisSantos/ControlId.Net
 links:
   - label: NuGet
     href: https://www.nuget.org/packages/ControlId.Net
-order: 2
+order: 3
 ---
 
 Cliente .NET para a linha de acesso da Control iD (iDAccess, iDFlex, iDFace, iDBox, iDUHF) e para os relógios de ponto REP iDClass. Gera para `net8.0` e `netstandard2.0`, então também funciona em projetos .NET Framework 4.6.1+.

@@ -1,16 +1,13 @@
 ---
-title: JobRadar AU
-summary: Australian job-market radar for Working Holiday visa holders, with listings ranked by an explainable score and a monthly market snapshot.
-highlight: .NET 10 · Clean Architecture · PostgreSQL · 239 tests
+title: JobRadar
+summary: Job-market radar in .NET that ranks listings with an explainable score, tracks applications and builds a monthly market snapshot. In production since October 2026.
+highlight: .NET 10 · Clean Architecture · PostgreSQL · in production · 289 tests
 tags: [.NET 10, Blazor, EF Core, PostgreSQL, Docker, xUnit, Testcontainers, GitHub Actions]
-repo: https://github.com/DaviLuisSantos/job-radar-au
-links:
-  - label: Python prototype
-    href: https://github.com/DaviLuisSantos/job-tracker
-order: 6
+order: 5
 ---
 
-It started as a Python prototype to follow jobs in Australia without running the same searches every day. Once the rules proved useful, I rewrote everything in .NET 10, using the prototype as the specification. JobRadar has been in daily use since October 2026.
+
+It started as a Python prototype to follow job listings without running the same searches every day. Once the rules proved useful, I rewrote everything in .NET 10, using the prototype as the specification. JobRadar has been in production since October 2026, with a daily pass and the prototype switched off.
 
 There are two products on the same core: **matching**, which ranks listings by profile and tracks applications, and the **market snapshot**, which only publishes aggregated numbers.
 
@@ -29,5 +26,5 @@ There are two products on the same core: **matching**, which ranks listings by p
 ## Engineering
 
 - **Clean Architecture** with one project per layer, so the compiler enforces that dependencies point inward.
-- **239 tests,** including contract tests against a real PostgreSQL with Testcontainers, running in CI.
+- **289 tests,** including contract tests against a real PostgreSQL with Testcontainers, running in CI.
 - **Automatic deploy** when CI passes, with rollback, running as Windows services with PostgreSQL in Docker.

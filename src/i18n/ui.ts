@@ -18,7 +18,7 @@ export const ui = {
     'hero.title.1': 'Código é uma',
     'hero.title.2': 'forma de pensar.',
     'hero.tagline':
-      'Construo sistemas que rodam no mundo real: controle de acesso, integrações com hardware, visão computacional e aplicações web com .NET, TypeScript e Python.',
+      'Backend .NET e React/TypeScript. Modernizo sistemas legados sem parar a operação e integro câmeras, controladoras e redes a serviços que rodam em produção.',
     'hero.resume': 'Baixar currículo',
     'hero.projects': 'Ver projetos',
     'stack.title': 'stack',
@@ -37,7 +37,7 @@ export const ui = {
     'about.p1':
       'Sou desenvolvedor full stack do Rio de Janeiro e gosto de transformar problemas reais em software simples de usar e de manter. Boa parte do meu trabalho acontece longe do navegador: câmeras, controladoras de acesso, sistemas legados e servidores que não podem parar.',
     'about.p2':
-      'Sou formado em Análise e Desenvolvimento de Sistemas, curso Ciência da Computação e tenho a certificação Microsoft Azure Fundamentals (AZ-900).',
+      'Sou engenheiro de software pleno na Segmix Tecnologia, onde sou autor principal de um serviço em produção em mais de 20 condomínios e lidero o domínio do sistema que substitui um legado de 20 anos. Sou formado em Análise e Desenvolvimento de Sistemas, pós-graduado em Engenharia de Software, concluindo Ciência da Computação, e tenho a certificação Microsoft Azure Fundamentals (AZ-900).',
     'channel.title': 'canal',
     'channel.heading': 'Também falo de programação no YouTube.',
     'channel.text': 'No Davi Dev eu mostro projetos, ferramentas e o que venho aprendendo construindo software.',
@@ -76,7 +76,7 @@ export const ui = {
     'hero.title.1': 'Code is a',
     'hero.title.2': 'way of thinking.',
     'hero.tagline':
-      'I build systems that run in the real world: access control, hardware integrations, computer vision and web applications with .NET, TypeScript and Python.',
+      '.NET back end and React/TypeScript. I modernize legacy systems without stopping operations and connect cameras, access controllers and networks to services running in production.',
     'hero.resume': 'Download resume',
     'hero.projects': 'See projects',
     'stack.title': 'stack',
@@ -93,7 +93,7 @@ export const ui = {
     'about.lead': 'I write software the way I try to live: with clarity, no shortcuts, and thinking about whoever comes next.',
     'about.p1':
       'I am a full stack developer from Rio de Janeiro who enjoys turning real problems into software that is simple to use and to maintain. Much of my work happens far from the browser: cameras, access controllers, legacy systems and servers that cannot go down.',
-    'about.p2': 'I hold a degree in Systems Analysis and Development, I am studying Computer Science and I am Microsoft Azure Fundamentals (AZ-900) certified.',
+    'about.p2': 'I am a mid-level software engineer at Segmix Tecnologia, where I am the main author of a service running at 20+ residential sites and lead the domain design of the system replacing a 20-year-old legacy. I hold a degree in Systems Analysis and Development and a postgraduate diploma in Software Engineering, I am finishing Computer Science, and I am Microsoft Azure Fundamentals (AZ-900) certified.',
     'channel.title': 'channel',
     'channel.heading': 'I also talk about programming on YouTube.',
     'channel.text': 'On Davi Dev I show projects, tools and what I have been learning while building software (in Portuguese).',

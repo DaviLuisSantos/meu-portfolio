@@ -6,7 +6,7 @@ tags: [ESP32, C++, PlatformIO, TFT_eSPI, Python, pytest, GitHub Actions]
 cover: ../../../assets/projects/cyd-pc-dashboard.png
 repo: https://github.com/DaviLuisSantos/cyd-pc-dashboard
 demo: https://daviluissantos.github.io/cyd-pc-dashboard/
-order: 5
+order: 9
 ---
 
 A 2.8" panel (a board that costs about US$15) that sits next to the monitor and shows, at a glance, what would otherwise mean switching windows. The captures above were read straight from the display's framebuffer.

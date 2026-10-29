@@ -1,16 +1,13 @@
 ---
-title: JobRadar AU
-summary: Radar do mercado de trabalho australiano para quem chega com Working Holiday, com vagas ranqueadas por um score explicado e um raio-x mensal do mercado.
-highlight: .NET 10 · Clean Architecture · PostgreSQL · 239 testes
+title: JobRadar
+summary: Radar de vagas em .NET que ranqueia anúncios por um score explicado, acompanha candidaturas e gera um raio-x mensal do mercado. Em produção desde outubro de 2026.
+highlight: .NET 10 · Clean Architecture · PostgreSQL · em produção · 289 testes
 tags: [.NET 10, Blazor, EF Core, PostgreSQL, Docker, xUnit, Testcontainers, GitHub Actions]
-repo: https://github.com/DaviLuisSantos/job-radar-au
-links:
-  - label: Protótipo em Python
-    href: https://github.com/DaviLuisSantos/job-tracker
-order: 6
+order: 5
 ---
 
-Começou como um protótipo em Python para acompanhar vagas na Austrália sem repetir as mesmas buscas todo dia. Quando as regras se provaram úteis, reescrevi tudo em .NET 10, usando o protótipo como especificação. O JobRadar está em uso diário desde outubro de 2026.
+
+Começou como um protótipo em Python para acompanhar vagas sem repetir as mesmas buscas todo dia. Quando as regras se provaram úteis, reescrevi tudo em .NET 10, usando o protótipo como especificação. O JobRadar está em produção desde outubro de 2026, com passada diária e o protótipo desligado.
 
 São dois produtos sobre o mesmo núcleo: o **matching**, que ranqueia as vagas por perfil e acompanha as candidaturas, e o **raio-x**, que publica só números agregados do mercado.
 
@@ -29,5 +26,5 @@ São dois produtos sobre o mesmo núcleo: o **matching**, que ranqueia as vagas 
 ## Engenharia
 
 - **Clean Architecture** com um projeto por camada, para o compilador garantir que as dependências apontem para dentro.
-- **239 testes,** incluindo testes de contrato contra um PostgreSQL real com Testcontainers, rodando no CI.
+- **289 testes,** incluindo testes de contrato contra um PostgreSQL real com Testcontainers, rodando no CI.
 - **Deploy automático** quando o CI passa, com rollback, rodando como serviços do Windows com o PostgreSQL em Docker.

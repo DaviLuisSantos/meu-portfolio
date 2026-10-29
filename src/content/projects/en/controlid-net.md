@@ -7,7 +7,7 @@ repo: https://github.com/DaviLuisSantos/ControlId.Net
 links:
   - label: NuGet
     href: https://www.nuget.org/packages/ControlId.Net
-order: 2
+order: 3
 ---
 
 A .NET client for Control iD access-control devices (iDAccess, iDFlex, iDFace, iDBox, iDUHF) and iDClass REP time clocks. Targets `net8.0` and `netstandard2.0`, so it also works in .NET Framework 4.6.1+ projects.

@@ -4,7 +4,7 @@ summary: Local web app to organize, edit and record Markdown video scripts, with
 highlight: no framework · teleprompter
 tags: [Node.js, Express, JavaScript, HTML, CSS]
 repo: https://github.com/DaviLuisSantos/RoteiroManager
-order: 10
+order: 11
 ---
 
 Built for my own video recording workflow: scripts live in Markdown files, and the app turns each one into something easy to read while recording.
