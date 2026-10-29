@@ -11,6 +11,7 @@ export const ui = {
   pt: {
     'meta.description': 'Portfólio de Davi Luis, desenvolvedor full stack: .NET, TypeScript e Python em sistemas que rodam em produção.',
     'nav.projects': 'projetos',
+    'nav.experience': 'experiência',
     'nav.about': 'sobre',
     'nav.contact': 'contato',
     'nav.switch': 'Read in English',
@@ -31,6 +32,8 @@ export const ui = {
     'projects.demo': 'online',
     'projects.details': 'ler mais',
     'projects.back': 'voltar aos projetos',
+    'experience.title': 'experiência',
+    'experience.work': 'ver o trabalho',
     'about.title': 'sobre',
     'about.lead':
       'Escrevo software do jeito que tento viver: com clareza, sem atalhos e pensando em quem vem depois.',
@@ -69,6 +72,7 @@ export const ui = {
   en: {
     'meta.description': 'Portfolio of Davi Luis, full stack developer: .NET, TypeScript and Python in systems that run in production.',
     'nav.projects': 'projects',
+    'nav.experience': 'experience',
     'nav.about': 'about',
     'nav.contact': 'contact',
     'nav.switch': 'Ler em português',
@@ -89,6 +93,8 @@ export const ui = {
     'projects.demo': 'live',
     'projects.details': 'read more',
     'projects.back': 'back to projects',
+    'experience.title': 'experience',
+    'experience.work': 'see the work',
     'about.title': 'about',
     'about.lead': 'I write software the way I try to live: with clarity, no shortcuts, and thinking about whoever comes next.',
     'about.p1':
