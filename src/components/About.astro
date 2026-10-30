@@ -1,5 +1,6 @@
 ---
 import SectionLabel from './SectionLabel.astro';
+import { profile } from '../data/profile';
 import type { Lang } from '../i18n/ui';
 import { useTranslations } from '../i18n/utils';
 
@@ -16,6 +17,22 @@ const t = useTranslations(lang);
     <div class="space-y-5 text-lg text-pretty text-muted lg:pt-3">
       <p>{t('about.p1')}</p>
       <p>{t('about.p2')}</p>
+      <dl class="grid gap-4 border-t border-border pt-5 text-base sm:grid-cols-3 lg:grid-cols-1 xl:grid-cols-3">
+        {
+          [
+            { label: t('about.education'), items: profile.education },
+            { label: t('about.certifications'), items: profile.certifications },
+            { label: t('about.languages'), items: profile.languages },
+          ].map((block) => (
+            <div>
+              <dt class="font-mono text-xs tracking-widest text-cobalt uppercase">{block.label}</dt>
+              {block.items.map((item) => (
+                <dd class="mt-1 text-fg/85">{item[lang]}</dd>
+              ))}
+            </div>
+          ))
+        }
+      </dl>
     </div>
   </div>
 </section>

@@ -115,9 +115,9 @@ body {
   }
 }
 
+/* Só movimento: o conteúdo nunca fica invisível (capturas, impressão, rolagem rápida). */
 @keyframes reveal {
   from {
-    opacity: 0;
     transform: translateY(1.5rem);
   }
 }

@@ -9,13 +9,14 @@ export const defaultLang: Lang = 'pt';
 
 export const ui = {
   pt: {
-    'meta.description': 'Portfólio de Davi Luis, desenvolvedor full stack: .NET, TypeScript e Python em sistemas que rodam em produção.',
+    'meta.description': 'Portfólio de Davi Luis, engenheiro de software pleno: .NET, TypeScript e Python em sistemas que rodam em produção.',
     'nav.projects': 'projetos',
     'nav.experience': 'experiência',
     'nav.about': 'sobre',
     'nav.contact': 'contato',
     'nav.switch': 'Read in English',
-    'hero.kicker': 'desenvolvedor full stack',
+    'hero.kicker': 'engenheiro de software pleno',
+    'hero.meta': 'Rio de Janeiro, BR · .NET · TypeScript · Python',
     'hero.title.1': 'Código é uma',
     'hero.title.2': 'forma de pensar.',
     'hero.tagline':
@@ -35,12 +36,15 @@ export const ui = {
     'experience.title': 'experiência',
     'experience.work': 'ver o trabalho',
     'about.title': 'sobre',
+    'about.education': 'formação',
+    'about.certifications': 'certificação',
+    'about.languages': 'idiomas',
     'about.lead':
       'Escrevo software do jeito que tento viver: com clareza, sem atalhos e pensando em quem vem depois.',
     'about.p1':
-      'Sou desenvolvedor full stack do Rio de Janeiro e gosto de transformar problemas reais em software simples de usar e de manter. Boa parte do meu trabalho acontece longe do navegador: câmeras, controladoras de acesso, sistemas legados e servidores que não podem parar.',
+      'Sou engenheiro de software full stack do Rio de Janeiro e gosto de transformar problemas reais em software simples de usar e de manter. Boa parte do meu trabalho acontece longe do navegador: câmeras, controladoras de acesso, sistemas legados e servidores que não podem parar.',
     'about.p2':
-      'Sou engenheiro de software pleno na Segmix Tecnologia, onde sou autor principal de um serviço em produção em mais de 20 condomínios e lidero o domínio do sistema que substitui um legado de 20 anos. Sou formado em Análise e Desenvolvimento de Sistemas, pós-graduado em Engenharia de Software, concluindo Ciência da Computação, e tenho a certificação Microsoft Azure Fundamentals (AZ-900).',
+      'Sou engenheiro de software pleno na Segmix Tecnologia, onde sou autor principal de um serviço em produção em mais de 20 condomínios e lidero o domínio do sistema que substitui um legado de 20 anos.',
     'channel.title': 'canal',
     'channel.heading': 'Também falo de programação no YouTube.',
     'channel.text': 'No Davi Dev eu mostro projetos, ferramentas e o que venho aprendendo construindo software.',
@@ -70,13 +74,14 @@ export const ui = {
     'notfound.back': 'Voltar ao início',
   },
   en: {
-    'meta.description': 'Portfolio of Davi Luis, full stack developer: .NET, TypeScript and Python in systems that run in production.',
+    'meta.description': 'Portfolio of Davi Luis, mid-level software engineer: .NET, TypeScript and Python in systems that run in production.',
     'nav.projects': 'projects',
     'nav.experience': 'experience',
     'nav.about': 'about',
     'nav.contact': 'contact',
     'nav.switch': 'Ler em português',
-    'hero.kicker': 'full stack developer',
+    'hero.kicker': 'mid-level software engineer',
+    'hero.meta': 'Rio de Janeiro, Brazil · .NET · TypeScript · Python',
     'hero.title.1': 'Code is a',
     'hero.title.2': 'way of thinking.',
     'hero.tagline':
@@ -96,10 +101,13 @@ export const ui = {
     'experience.title': 'experience',
     'experience.work': 'see the work',
     'about.title': 'about',
+    'about.education': 'education',
+    'about.certifications': 'certification',
+    'about.languages': 'languages',
     'about.lead': 'I write software the way I try to live: with clarity, no shortcuts, and thinking about whoever comes next.',
     'about.p1':
-      'I am a full stack developer from Rio de Janeiro who enjoys turning real problems into software that is simple to use and to maintain. Much of my work happens far from the browser: cameras, access controllers, legacy systems and servers that cannot go down.',
-    'about.p2': 'I am a mid-level software engineer at Segmix Tecnologia, where I am the main author of a service running at 20+ residential sites and lead the domain design of the system replacing a 20-year-old legacy. I hold a degree in Systems Analysis and Development and a postgraduate diploma in Software Engineering, I am finishing Computer Science, and I am Microsoft Azure Fundamentals (AZ-900) certified.',
+      'I am a full stack software engineer from Rio de Janeiro who enjoys turning real problems into software that is simple to use and to maintain. Much of my work happens far from the browser: cameras, access controllers, legacy systems and servers that cannot go down.',
+    'about.p2': 'I am a mid-level software engineer at Segmix Tecnologia, where I am the main author of a service running at 20+ residential sites and lead the domain design of the system replacing a 20-year-old legacy.',
     'channel.title': 'channel',
     'channel.heading': 'I also talk about programming on YouTube.',
     'channel.text': 'On Davi Dev I show projects, tools and what I have been learning while building software (in Portuguese).',

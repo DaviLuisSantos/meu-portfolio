@@ -32,7 +32,8 @@ const stubRolldownInServer = {
 export default defineConfig({
   site: 'https://portifolio-daviluissantos-projects.vercel.app',
   // Páginas continuam estáticas; só as rotas com `prerender = false` rodam no servidor.
-  adapter: vercel(),
+  // Web Analytics da Vercel: sem cookies; ative também na aba Analytics do projeto.
+  adapter: vercel({ webAnalytics: { enabled: true } }),
   i18n: {
     defaultLocale: 'pt',
     locales: ['pt', 'en'],
@@ -59,9 +60,9 @@ export default defineConfig({
       // Ao usar um ícone novo (ex.: em src/data/profile.ts), adicione-o aqui.
       include: {
         'simple-icons': [
-          'blazor', 'docker', 'dotnet', 'github', 'githubactions', 'instagram', 'linkedin', 'microsoftazure',
-          'nextdotjs', 'nodedotjs', 'onnx', 'opencv', 'postgresql', 'python', 'react', 'sqlite', 'typescript',
-          'youtube',
+          'blazor', 'cloudflare', 'docker', 'dotnet', 'espressif', 'github', 'githubactions', 'instagram',
+          'linkedin', 'microsoftazure', 'nextdotjs', 'nodedotjs', 'onnx', 'opencv', 'postgresql', 'python',
+          'pytorch', 'react', 'sqlite', 'tailwindcss', 'typescript', 'vercel', 'youtube',
         ],
         lucide: ['arrow-left', 'arrow-up-right', 'file-text', 'x'],
       },

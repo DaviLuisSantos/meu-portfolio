@@ -22,6 +22,7 @@ const t = useTranslations(lang);
         <em class="text-split pr-2">{t('hero.title.2')}</em>
       </h1>
       <p class="rise mt-8 max-w-xl text-lg text-pretty text-muted" style="--delay: 0.2s">{t('hero.tagline')}</p>
+      <p class="rise mt-4 font-mono text-xs text-muted sm:text-sm" style="--delay: 0.25s">// {t('hero.meta')}</p>
 
       <div class="rise mt-10 flex flex-wrap items-center gap-3" style="--delay: 0.3s">
         <a href={paths.resume(lang)} data-resume-open class="btn-glow inline-flex items-center gap-2 rounded-md px-5 py-3 font-medium">
@@ -58,4 +59,16 @@ const t = useTranslations(lang);
       />
     </div>
   </div>
+
+  <!-- Números que contam a história em cinco segundos. -->
+  <dl class="relative mx-auto grid max-w-6xl grid-cols-2 gap-px border-y border-border bg-border lg:grid-cols-4">
+    {
+      profile.facts.map((fact, i) => (
+        <div class="rise flex flex-col-reverse bg-bg px-4 py-6 sm:px-6" style={`--delay: ${0.45 + i * 0.05}s`}>
+          <dt class="mt-2 text-sm text-pretty text-muted">{fact.label[lang]}</dt>
+          <dd class="font-serif text-4xl text-split sm:text-5xl">{fact.value[lang]}</dd>
+        </div>
+      ))
+    }
+  </dl>
 </section>
