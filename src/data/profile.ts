@@ -21,15 +21,15 @@ export const profile = {
   facts: [
     {
       value: { pt: '3+', en: '3+' },
-      label: { pt: 'anos na Segmix, de estágio a pleno', en: 'years at Segmix, from intern to mid-level' },
+      label: { pt: 'anos como desenvolvedor, de estágio a pleno', en: 'years as a developer, from intern to mid-level' },
     },
     {
       value: { pt: '20+', en: '20+' },
-      label: { pt: 'condomínios com o meu servidor LPR em produção', en: 'residential sites running my LPR server' },
+      label: { pt: 'instalações em produção com um serviço que eu criei', en: 'production sites running a service I built' },
     },
     {
       value: { pt: '2.000+', en: '2,000+' },
-      label: { pt: 'testes automatizados nesse servidor', en: 'automated tests on that server' },
+      label: { pt: 'testes automatizados nesse serviço', en: 'automated tests on that service' },
     },
     {
       value: { pt: '3', en: '3' },
